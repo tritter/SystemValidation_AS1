@@ -6,4 +6,31 @@
 CTLSPEC EF T3A_occupied
 CTLSPEC EF T3B_occupied
 
+--safety, signals should ever have another state then green or red
+CTLSPEC AG (S1A_red | S1A_green)
+CTLSPEC AG (S2A_red | S2A_green)
+CTLSPEC AG (S3A_red | S3A_green)
+CTLSPEC AG (S4A_red | S4A_green)
 
+CTLSPEC AG (S1B_red | S1B_green)
+CTLSPEC AG (S2B_red | S2B_green)
+CTLSPEC AG (S3B_red | S3B_green)
+CTLSPEC AG (S4B_red | S4B_green)
+
+
+--safety, signal should always be red when the following track is occupied or not available (not locked)
+--defined as, globally, signal should always be red until either curve is lock, and track on other side is available, 
+--or if straight is locked, and track on straight side is available
+
+--for signals with interlocks
+LTLSPEC G (S2A_red U ((P1A_locked_curved & P2B_locked_curved & !T3B_occupied) | (P1A_locked_straight & !T2A_occupied)))
+LTLSPEC G (S4B_red U ((P1A_locked_curved & P2B_locked_curved & !T1A_occupied) | (P2B_locked_straight & !T4B_occupied)))
+LTLSPEC G (S4A_red U ((P2A_locked_curved & P1B_locked_curved & !T1B_occupied) | (P2A_locked_straight & !T4A_occupied)))
+LTLSPEC G (S2B_red U ((P2A_locked_curved & P1B_locked_curved & !T3A_occupied) | (P1B_locked_straight & !T2B_occupied)))
+--for signal without interlocks, with internal tracks
+LTLSPEC G (S3B_red U (P1B_locked_straight & !T2B_occupied))
+LTLSPEC G (S3A_red U (P1A_locked_straight & !T2A_occupied))
+
+
+--safety, system should never issue conflicting commands, a.k.a only goal_straight or goal_curved should be set at any given time
+LTLSPEC G ()

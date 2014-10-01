@@ -1,11 +1,5 @@
 
 
--- For each of the tracks T3A and T3B there is at least one test case
--- in which the track is occupied at least once.
-
-CTLSPEC EF T3A_occupied
-CTLSPEC EF T3B_occupied
-
 --safety, signals should ever have another state then green or red
 CTLSPEC AG (S1A_red | S1A_green)
 CTLSPEC AG (S2A_red | S2A_green)
@@ -23,14 +17,87 @@ CTLSPEC AG (S4B_red | S4B_green)
 --or if straight is locked, and track on straight side is available
 
 --for signals with interlocks
-LTLSPEC G (S2A_red U ((P1A_locked_curved & P2B_locked_curved & !T3B_occupied) | (P1A_locked_straight & !T2A_occupied)))
-LTLSPEC G (S4B_red U ((P1A_locked_curved & P2B_locked_curved & !T1A_occupied) | (P2B_locked_straight & !T4B_occupied)))
-LTLSPEC G (S4A_red U ((P2A_locked_curved & P1B_locked_curved & !T1B_occupied) | (P2A_locked_straight & !T4A_occupied)))
-LTLSPEC G (S2B_red U ((P2A_locked_curved & P1B_locked_curved & !T3A_occupied) | (P1B_locked_straight & !T2B_occupied)))
+LTLSPEC G (S2A_green -> ((P1A_locked_curved & P2B_locked_curved & !T3B_occupied) | (P1A_locked_straight & !T2A_occupied)))
+LTLSPEC G (S4B_green -> ((P1A_locked_curved & P2B_locked_curved & !T1A_occupied) | (P2B_locked_straight & !T4B_occupied)))
+LTLSPEC G (S4A_green -> ((P2A_locked_curved & P1B_locked_curved & !T1B_occupied) | (P2A_locked_straight & !T4A_occupied)))
+LTLSPEC G (S2B_green -> ((P2A_locked_curved & P1B_locked_curved & !T3A_occupied) | (P1B_locked_straight & !T2B_occupied)))
 --for signal without interlocks, with internal tracks
-LTLSPEC G (S3B_red U (P1B_locked_straight & !T2B_occupied))
-LTLSPEC G (S3A_red U (P1A_locked_straight & !T2A_occupied))
+LTLSPEC G (S3B_green -> (P1B_locked_straight & !T2B_occupied))
+LTLSPEC G (S3A_green -> (P1A_locked_straight & !T2A_occupied))
 
 
 --safety, system should never issue conflicting commands, a.k.a only goal_straight or goal_curved should be set at any given time
-LTLSPEC G ()
+--P1A
+LTLSPEC G (P1A_goal_straight -> !P1A_goal_curved)
+LTLSPEC G (P1A_goal_curved -> !P1A_goal_straight)
+--P2B
+LTLSPEC G (P2B_goal_straight -> !P2B_goal_curved)
+LTLSPEC G (P2B_goal_curved -> !P2B_goal_straight)
+--P1B
+LTLSPEC G (P1B_goal_straight -> !P1B_goal_curved)
+LTLSPEC G (P1B_goal_curved -> !P1B_goal_straight)
+--P2A
+LTLSPEC G (P2A_goal_straight -> !P2A_goal_curved)
+LTLSPEC G (P2A_goal_curved -> !P2A_goal_straight)
+
+
+--liveness, system should always eventually execute given commands, meaning, system will remain in a goal state, until
+--the goal is reached, and will eventually actually reach the goal (note, this does not allow the system
+--to change the given command until te command has actually been executed)
+--P1A
+LTLSPEC G ((P1A_goal_straight -> (P1A_goal_straight U P1A_locked_straight )) & (P1A_goal_straight -> F (!P1A_goal_straight & P1A_locked_straight)))
+LTLSPEC G ((P1A_goal_curved -> (P1A_goal_curved U P1A_locked_curved )) & (P1A_goal_curved -> F (!P1A_goal_curved & P1A_locked_curved)))
+--P2B
+LTLSPEC G ((P2B_goal_straight -> (P2B_goal_straight U P2B_locked_straight )) & (P2B_goal_straight -> F (!P2B_goal_straight & P2B_locked_straight)))
+LTLSPEC G ((P2B_goal_curved -> (P2B_goal_curved U P2B_locked_curved )) & (P2B_goal_curved -> F (!P2B_goal_curved & P2B_locked_curved)))
+--P2A
+LTLSPEC G ((P2A_goal_straight -> (P2A_goal_straight U P2A_locked_straight )) & (P2A_goal_straight -> F (!P2A_goal_straight & P2A_locked_straight)))
+LTLSPEC G ((P2A_goal_curved -> (P2A_goal_curved U P2A_locked_curved )) & (P2A_goal_curved -> F (!P2A_goal_curved & P2A_locked_curved)))
+--P1B
+LTLSPEC G ((P1B_goal_straight -> (P1B_goal_straight U P1B_locked_straight )) & (P1B_goal_straight -> F (!P1B_goal_straight & P1B_locked_straight)))
+LTLSPEC G ((P1B_goal_curved -> (P1B_goal_curved U P1B_locked_curved )) & (P1B_goal_curved -> F (!P1B_goal_curved & P1B_locked_curved)))
+
+
+-- ===============================================
+-- USE CASES
+-- ===============================================
+
+--other (no safety/liveness). From any state of the system, there should be at least one path
+--that leads to T3A being occupied, same for T3B
+CTLSPEC EF T3A_occupied
+CTLSPEC EF T3B_occupied
+
+--safety, a train should stay on its track if both the lights are red (trains do not dissappear)
+LTLSPEC G ((T1A_occupied & S2A_red & S1A_red) -> X T1A_occupied)
+LTLSPEC G ((T3A_occupied & S3A_red & S4A_red) -> X T3A_occupied)
+LTLSPEC G ((T3B_occupied & S4B_red & S3B_red) -> X T3B_occupied)
+LTLSPEC G ((T1B_occupied & S2B_red & S1B_red) -> X T1B_occupied)
+
+--other (no safety/liveness). From any state of the system, there shoudl be at least one path
+--in which trains pass each other in the middle (T3A and T3B are occupied at the same time)
+CTLSPEC EF (T3A_occupied & T3B_occupied)
+
+--liveness. A train should always move at some point in time. 
+LTLSPEC G (T1A_occupied -> F !T1A_occupied)
+LTLSPEC G (T2A_occupied -> F !T2A_occupied)
+LTLSPEC G (T3A_occupied -> F !T3A_occupied)
+LTLSPEC G (T4A_occupied -> F !T4A_occupied)
+LTLSPEC G (T1B_occupied -> F !T1B_occupied)
+LTLSPEC G (T2B_occupied -> F !T2B_occupied)
+LTLSPEC G (T3B_occupied -> F !T3B_occupied)
+LTLSPEC G (T4B_occupied -> F !T4B_occupied)
+
+--safety. The system should not get to a state where all tracks are occupied, this would result
+--in a deadlock.
+LTLSPEC G !(T1A_occupied & T2A_occupied & T3A_occupied & T4A_occupied & T1B_occupied & T2B_occupied & T3B_occupied & T4B_occupied)
+
+--liveness. Interlocks should be used by the system, otherwise they could be left out
+CTLSPEC AG AF (P1A_locked_straight) 
+CTLSPEC AG AF (P1A_locked_curved) 
+CTLSPEC AG AF (P1B_locked_straight) 
+CTLSPEC AG AF (P1B_locked_curved) 
+CTLSPEC AG AF (P2A_locked_straight) 
+CTLSPEC AG AF (P2A_locked_curved) 
+CTLSPEC AG AF (P2B_locked_straight) 
+CTLSPEC AG AF (P2B_locked_curved) 
+

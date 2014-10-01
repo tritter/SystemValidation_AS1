@@ -1,0 +1,224 @@
+-- specification  G (S2A_red U (   ((P1A_locked_curved & P2B_locked_curved) & !T3B_occupied) | (P1A_locked_straight & !T2A_occupied)   )         )  is false
+-- as demonstrated by the following execution sequence
+
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+
+--Run starts here, with following initial state:
+--none of the tracks are occupied
+--the interlocks are not locked into any position
+--all the interlock signal show a red light (interlocks are not ready so this is correct)
+--the signals to the outside world show green
+--no commands have been given to the interlocks
+
+-> State: 1.1 <-
+  T1A_occupied = FALSE
+  T2A_occupied = FALSE
+  T3A_occupied = FALSE
+  T4A_occupied = FALSE
+  T1B_occupied = FALSE
+  T2B_occupied = FALSE
+  T3B_occupied = FALSE
+  T4B_occupied = FALSE
+  S1A_red = FALSE
+  S1B_red = FALSE
+  S1A_green = TRUE
+  S1B_green = TRUE
+  P1A_locked_straight = FALSE
+  P2A_locked_straight = FALSE
+  P1B_locked_straight = FALSE
+  P2B_locked_straight = FALSE
+  P1A_locked_curved = FALSE
+  P2A_locked_curved = FALSE
+  P1B_locked_curved = FALSE
+  P2B_locked_curved = FALSE
+  S2A_red = TRUE
+  S3A_red = TRUE
+  S4A_red = TRUE
+  S2B_red = TRUE
+  S3B_red = TRUE
+  S4B_red = TRUE
+  S2A_green = FALSE
+  S3A_green = FALSE
+  S4A_green = FALSE
+  S2B_green = FALSE
+  S3B_green = FALSE
+  S4B_green = FALSE
+  P1A_goal_straight = FALSE
+  P2A_goal_straight = FALSE
+  P1B_goal_straight = FALSE
+  P2B_goal_straight = FALSE
+  P1A_goal_curved = FALSE
+  P2A_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  P2B_goal_curved = FALSE
+  
+  
+--two trains move into the system from the outside world, into t0A and t0B
+--this can be seen by the lights s1A and s1B turning red.
+--the interlocks are set to move the locked_strait positions
+
+-> State: 1.2 <-
+  S1A_red = TRUE
+  S1B_red = TRUE
+  S1A_green = FALSE
+  S1B_green = FALSE
+  P1A_goal_straight = TRUE
+  P2A_goal_straight = TRUE
+  P1B_goal_straight = TRUE
+  P2B_goal_straight = TRUE
+  
+--both trains move from T0_ to T1_ respectively.
+--The outside world signals S1A and S1B change accordingly
+--THe interlocks reach the locked straight position
+--Since the interlocks reached a locked state, the signals S2A and S2B turn green
+--S4B and S4A remain red, even though lock is set, and track is available                   !!!!!!!!!!!!!!!!!
+--S3A and S3B remain red, since their destination tracks are occupied
+--the system resets the commands
+
+-> State: 1.3 <-
+  T1A_occupied = TRUE
+  T1B_occupied = TRUE
+  S1A_red = FALSE
+  S1B_red = FALSE
+  S1A_green = TRUE
+  S1B_green = TRUE
+  P1A_locked_straight = TRUE
+  P2A_locked_straight = TRUE
+  P1B_locked_straight = TRUE
+  P2B_locked_straight = TRUE
+  S2A_red = FALSE
+  S2B_red = FALSE
+  S2A_green = TRUE
+  S2B_green = TRUE
+  P1A_goal_straight = FALSE
+  P2A_goal_straight = FALSE
+  P1B_goal_straight = FALSE
+  P2B_goal_straight = FALSE
+  
+--both trains move to the next track (straight) T1A-T2A, T1B-T2B
+--since the destination tracks are now occupied, the signals S2A and S2B turn red again
+  
+-> State: 1.4 <-
+  T1A_occupied = FALSE
+  T2A_occupied = TRUE
+  T1B_occupied = FALSE
+  T2B_occupied = TRUE
+  S2A_red = TRUE
+  S2B_red = TRUE
+  S2A_green = FALSE
+  S2B_green = FALSE
+  
+--the trains move to the next track (straight) T2A-T3A, T2B-T3B
+--the ligths S3A and S3B can now turn green since their destination track is unoccupied
+--the interlocks are set to move to curved position
+  
+-> State: 1.5 <-
+  T2A_occupied = FALSE
+  T3A_occupied = TRUE
+  T2B_occupied = FALSE
+  T3B_occupied = TRUE
+  S3A_red = FALSE
+  S3B_red = FALSE
+  S3A_green = TRUE
+  S3B_green = TRUE
+  P1A_goal_curved = TRUE
+  P2A_goal_curved = TRUE
+  P1B_goal_curved = TRUE
+  P2B_goal_curved = TRUE
+  
+
+--interlocks are unlocked and moving towards new position  
+--light S3A and S3B change accordingly
+--lights S2A and S2B remain red, since their locks are now unlocked
+  
+-> State: 1.6 <-
+  P1A_locked_straight = FALSE
+  P2A_locked_straight = FALSE
+  P1B_locked_straight = FALSE
+  P2B_locked_straight = FALSE
+  S3A_red = TRUE
+  S3B_red = TRUE
+  S3A_green = FALSE
+  S3B_green = FALSE
+  
+  
+--nothing relevant happens
+-> State: 1.7 <-
+
+--P1A reaches locked state
+
+-> State: 1.8 <-
+  P1A_locked_curved = TRUE
+  
+  
+--P1B reaches locked state  
+-> State: 1.9 <-
+  P1B_locked_curved = TRUE
+  
+  
+--P2A reachees locked state
+--S4A turn greens since both P1B and P2A are in curved locked state
+--commands to locks are reset
+-> State: 1.10 <-
+  P2A_locked_curved = TRUE
+  S4A_red = FALSE
+  S4A_green = TRUE
+  P2A_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  
+  
+--train moves in straight direction even though locks are set in curved lock state !!!!!!!!!!!!!!!!
+--S4A is set to red, since the destination track is occupied
+  
+-> State: 1.11 <-
+  T3A_occupied = FALSE
+  T4A_occupied = TRUE
+  S4A_red = TRUE
+  S4A_green = FALSE
+  
+--train moves accros curved lock, no lights change
+-> State: 1.12 <-
+  T4A_occupied = FALSE
+  T2B_occupied = TRUE
+  
+--train moves from lock to exit track T1B
+--S2B turns green since destination track is empty, and lock is set curved  
+-> State: 1.13 <-
+  T1B_occupied = TRUE
+  T2B_occupied = FALSE
+  S2B_red = FALSE
+  S2B_green = TRUE
+  
+  
+--Train leaves system
+--Outside world signal is set red
+--S4A is set to green, since destionation track is empty
+-> State: 1.14 <-
+  T1B_occupied = FALSE
+  S1B_red = TRUE
+  S1B_green = FALSE
+  S4A_red = FALSE
+  S4A_green = TRUE
+  
+  
+--train leaves t0B and disappears, lights set accordingly
+-> State: 1.15 <-
+  S1B_red = FALSE
+  S1B_green = TRUE
+  
+  
+--train enters system in t0A, signal S1A changes accordingly  
+-> State: 1.16 <-
+  S1A_red = TRUE
+  S1A_green = FALSE
+  
+  
+-- Loop starts here
+-> State: 1.17 <-
+  T1A_occupied = TRUE
+  S1A_red = FALSE
+  S1A_green = TRUE
+  P2B_locked_curved = TRUE
+  P1A_goal_curved = FALSE
+  P2B_goal_curved = FALSE

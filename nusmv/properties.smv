@@ -58,9 +58,9 @@ LTLSPEC G ((P1B_goal_straight -> (P1B_goal_straight U P1B_locked_straight )) & (
 LTLSPEC G ((P1B_goal_curved -> (P1B_goal_curved U P1B_locked_curved )) & (P1B_goal_curved -> F (!P1B_goal_curved & P1B_locked_curved)))
 
 
--- ===============================================
--- USE CASES
--- ===============================================
+---- ===============================================
+---- USE CASES
+---- ===============================================
 
 --other (no safety/liveness). From any state of the system, there should be at least one path
 --that leads to T3A being occupied, same for T3B
@@ -73,8 +73,8 @@ LTLSPEC G ((T3A_occupied & S3A_red & S4A_red) -> X T3A_occupied)
 LTLSPEC G ((T3B_occupied & S4B_red & S3B_red) -> X T3B_occupied)
 LTLSPEC G ((T1B_occupied & S2B_red & S1B_red) -> X T1B_occupied)
 
---other (no safety/liveness). From any state of the system, there shoudl be at least one path
---in which trains pass each other in the middle (T3A and T3B are occupied at the same time)
+----other (no safety/liveness). From any state of the system, there shoudl be at least one path
+----in which trains pass each other in the middle (T3A and T3B are occupied at the same time)
 CTLSPEC EF (T3A_occupied & T3B_occupied)
 
 --liveness. A train should always move at some point in time. 
@@ -87,17 +87,17 @@ LTLSPEC G (T2B_occupied -> F !T2B_occupied)
 LTLSPEC G (T3B_occupied -> F !T3B_occupied)
 LTLSPEC G (T4B_occupied -> F !T4B_occupied)
 
---safety. The system should not get to a state where all tracks are occupied, this would result
---in a deadlock.
+----safety. The system should not get to a state where all tracks are occupied, this would result
+----in a deadlock.
 LTLSPEC G !(T1A_occupied & T2A_occupied & T3A_occupied & T4A_occupied & T1B_occupied & T2B_occupied & T3B_occupied & T4B_occupied)
 
 --liveness. Interlocks should be used by the system, otherwise they could be left out
-CTLSPEC AG AF (P1A_locked_straight) 
-CTLSPEC AG AF (P1A_locked_curved) 
-CTLSPEC AG AF (P1B_locked_straight) 
-CTLSPEC AG AF (P1B_locked_curved) 
-CTLSPEC AG AF (P2A_locked_straight) 
-CTLSPEC AG AF (P2A_locked_curved) 
-CTLSPEC AG AF (P2B_locked_straight) 
-CTLSPEC AG AF (P2B_locked_curved) 
+--CTLSPEC AG AF (P1A_locked_straight) 
+--CTLSPEC AG AF (P1A_locked_curved) 
+--CTLSPEC AG AF (P1B_locked_straight) 
+--CTLSPEC AG AF (P1B_locked_curved) 
+--CTLSPEC AG AF (P2A_locked_straight) 
+--CTLSPEC AG AF (P2A_locked_curved) 
+--CTLSPEC AG AF (P2B_locked_straight) 
+--CTLSPEC AG AF (P2B_locked_curved) 
 

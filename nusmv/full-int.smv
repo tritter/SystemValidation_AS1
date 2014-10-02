@@ -97,12 +97,12 @@ MODULE Interlocking(
     esac;
     next(P2A_goal_curved) := case
       P2A_locked_curved : FALSE;
-      T3A_occupied : TRUE;
+      T3A_occupied & !P2A_goal_straight: TRUE;
       TRUE : P2A_goal_curved;
     esac;
     next(P1B_goal_curved) := case
       P1B_locked_curved : FALSE;
-      T3A_occupied : TRUE;
+      T3A_occupied & !P1B_goal_straight: TRUE;
       TRUE : P1B_goal_curved;
     esac;
     next(P2B_goal_curved) := case

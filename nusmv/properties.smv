@@ -24,11 +24,10 @@ LTLSPEC G (S4B_green -> ((P1A_locked_curved & P2B_locked_curved & !T1A_occupied 
 LTLSPEC G (S4A_green -> ((P2A_locked_curved & P1B_locked_curved & !T1B_occupied & !T4A_occupied & !T2B_occupied) | (P2A_locked_straight & !T4A_occupied)))
 LTLSPEC G (S2B_green -> ((P2A_locked_curved & P1B_locked_curved & !T3A_occupied & !T2B_occupied & !T4A_occupied) | (P1B_locked_straight & !T2B_occupied & !T3B_occupied)))
 
-LTLSPEC G (S2A_red -> (!P1A_locked_straight | !(P1A_locked_curved & P2B_locked_curved))  | (P1A_locked_straight & T3A_occupied) | (P1A_locked_curved & P2B_locked_curved & (T4B_occupied | T2A_occupied | T3B_occupied)) )
---LTLSPEC G (S2B_red -> )
---LTLSPEC G (S4B_red -> )
---LTLSPEC G (S4A_red -> )
-
+LTLSPEC G (S2A_red -> (!P1A_locked_straight | !(P1A_locked_curved & P2B_locked_curved)) | (P1A_locked_straight & T3A_occupied) | (P1A_locked_curved & P2B_locked_curved & (T4B_occupied | T2A_occupied | T3B_occupied)))
+LTLSPEC G (S4B_red -> (!P2B_locked_straight | !(P1A_locked_curved & P2B_locked_curved)) | (P2B_locked_straight & T4B_occupied) | (P1A_locked_curved & P2B_locked_curved & (T4B_occupied | T2A_occupied | T1A_occupied)))
+LTLSPEC G (S4A_red -> (!P2A_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P2A_locked_straight & T4A_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T1B_occupied)))
+LTLSPEC G (S2B_red -> (!P1B_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P1B_locked_straight & T3B_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T3A_occupied)))
 
 --for signal without interlocks, with internal tracks
 LTLSPEC G (S3B_green -> (P1B_locked_straight & !T2B_occupied & !T1B_occupied))

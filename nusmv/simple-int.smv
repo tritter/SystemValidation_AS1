@@ -54,7 +54,7 @@ MODULE Interlocking(
         TRUE : TRUE;
     esac;
     next(S4A_red) := case
-        P2A_locked_curved & !T4A_occupied & ! T2B_occupied & ! T1B_occupied : FALSE;
+        P1B_locked_curved & P2A_locked_curved & !T4A_occupied & ! T2B_occupied & ! T1B_occupied : FALSE;
         TRUE : TRUE;
     esac;
     next(S2B_red) := case
@@ -66,7 +66,7 @@ MODULE Interlocking(
         TRUE : TRUE;
     esac;
     next(S4B_red) := case
-        P2B_locked_curved & !T4B_occupied & ! T2A_occupied & ! T1A_occupied : FALSE;
+        P1A_locked_curved & P2B_locked_curved & !T4B_occupied & ! T2A_occupied & ! T1A_occupied : FALSE;
         TRUE : TRUE;
     esac;
 

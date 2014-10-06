@@ -12,7 +12,7 @@ CTLSPEC AG (S3B_red | S3B_green)
 CTLSPEC AG (S4B_red | S4B_green)
 
 
---safety, signal should always green when the train can safely move to the next section
+--safety, signal should always be green when the train can safely move to the next section
 --defined as signal green implies that the train can safely move to the next track (this does not yet specify
 --that the signal has to be green when the track is available. for this we need the next spec also)
 
@@ -27,7 +27,7 @@ LTLSPEC G (S3B_green -> (P1B_locked_straight & !T2B_occupied & !T1B_occupied))
 LTLSPEC G (S3A_green -> (P1A_locked_straight & !T2A_occupied & !T1A_occupied))
 
 
---safety, signal should always green when the train can safely move to the next section
+--safety, signal should always be green when the train can safely move to the next section
 --define as, signal red implies that the train cannot safely mvoe to the next track. (together with the previous 
 --property, this ensures that the signal cannot be red when the next track is available, and it cannot be green
 --when the next track is not available. Since signal are always red or green, this checks the proper

@@ -9,10 +9,30 @@ static int    file_status[MAX_FILES];
 static int    file_parent[MAX_FILES];
 
 void init_fs(){
+  //test (file - 1)
+  //test/test (dir - 1)
+  //     test (file - 2)
+  //     /test/test (dir - 2)
+  //           test (file - 3)
+  //           test (file - 6)
+  //           /test/test (dir - 3)
+  //           test (file - 4)
+  //           test (file - 5)
+
+
   int i;
   for(i=0;i<MAX_FILES;i++){
     file_status[i]=0;
     file_parent[i]=-1;
+    if(i < MAX_DIRS){
+        file_parent[i]=i;
+        create_dir(i-1, "test");
+        create_file(i,"test");
+    }else{
+        create_file(MAX_FILES-i, "test2");
+    }
+  }
+  for(i=0; i<MAX_DIRS;i++){
     dir_status[i]=0;  
   }
   dir_status[0]|=ENTRY_USED;
@@ -52,6 +72,7 @@ int create_dir(int parent,char*name){
     }
     for(i=1;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
+            dir_status[i]|=ENTRY_USED;
             fs_create_dir(&dirs[parent],name,&dirs[i]);
             return i;
         }
@@ -72,6 +93,7 @@ int close_dir(int id){
             close_file(i);
         }
     }
+    dir_status[i]&=~ENTRY_USED;
     fs_close_dir(&dirs[id]);
 }
 

@@ -1,6 +1,10 @@
 #ifndef WRAPPED_FS_H
 #define WRAPPED_FS_H
 
+#define MAX_DIRS 3
+#define MAX_FILES 6
+#define ENTRY_USED 0x01
+
 #define SUCCESS 0
 
 #define ERR_NON_EXISTING -1
@@ -9,6 +13,9 @@
 #define ERR_EXISTS -4
 #define ERR_NOT_OPEN -5
 #define ERR_INVALID_ARG -6
+
+extern static int    file_status[MAX_FILES];
+extern static int    dir_status[MAX_DIRS];
 
 /* This function must be called to initialize the wrapper library.
    The root directory of the file system is opened as directory number 0.

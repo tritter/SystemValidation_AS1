@@ -13,7 +13,9 @@ void init_fs(){
   for(i=0;i<MAX_FILES;i++){
     file_status[i]=0;
     file_parent[i]=-1;
-    dir_status[i]=0;  
+  }
+  for(i=0; i<MAX_DIRS;i++){
+	dir_status[i]=0;  
   }
   dir_status[0]|=ENTRY_USED;
   fs_init_root(&dirs[0]);

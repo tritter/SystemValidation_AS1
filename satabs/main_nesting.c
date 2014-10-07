@@ -19,27 +19,22 @@ int main(){
   //Assume to be in the allowed file range
   __CPROVER_assume(n_file >= 0 && n_file < MAX_FILES);
 
-  //Test all actions in all different orders
-  for(int i = 0; i < NUMBER_OF_ACTIONS; i++){
-  	  int random = nondet_int ();
-	  __CPROVER_assume (1 >= random && random <= 4);
-  	  perform_action(random);
-  }
+   perform_action(2);
+  
 }
 
 
 void perform_action(int action){
   switch (action)
   {
-  case 1:{ 
-	  	n_file = open_file(n_dir, "test");
-		if(dir_status[n_dir] & ENTRY_USED){ //directory is open
-		  	assert(file_status[n_file] & ENTRY_USED); //file is open
-		}else{
-		  	assert(!(file_status[n_file] & ENTRY_USED)); //file should be closed
-		}
-  	}
-    break;
+  case 1: 
+            n_file = open_file(n_dir, "test");
+            if(dir_status[n_dir] & ENTRY_USED){ //directory is open
+                assert(file_status[n_file] & ENTRY_USED); //file is open
+            }else{
+                assert(!(file_status[n_file] & ENTRY_USED)); //file should be closed
+            }
+            break;
   case 2:{
   		int w1 = write_file(n_file, 0, 11, "hello world");
 	  	if(file_status[n_file] & ENTRY_USED){

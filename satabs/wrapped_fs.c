@@ -50,7 +50,7 @@ int create_dir(int parent,char*name){
     if (fs_exists_dir(&dirs[parent],name)){
         return ERR_EXISTS;
     }
-    for(i=1;i<MAX_DIRS;i++){
+    for(i=0;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
             fs_create_dir(&dirs[parent],name,&dirs[i]);
             return i;

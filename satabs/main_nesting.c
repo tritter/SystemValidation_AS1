@@ -2,42 +2,46 @@
 #define NUMBER_OF_ACTIONS 5
 
 int nondet_int();
-void perform_action();
-int n_dir, n_file;
 
 int main(){
-  int d1;
-  n_dir = nondet_int(); //non_d directory
-  n_file  = nondet_int(); //non_d file
+  int d1,n,n_file;
+  n = nondet_int(); //non_d directory
   init_fs(); //Init sample file-system
 
   //Assume to be in the allowed directory range
-  __CPROVER_assume(n_dir >= 0 && n_dir < MAX_DIRS);
-  d1 = open_dir(n_dir,"test");
-  assert(d1<0);
+  __CPROVER_assume(n >= 0 && n < MAX_DIRS);
+  // d1 = open_dir(n,"test");
+  // assert(d1<0);
 
-  //Assume to be in the allowed file range
-  __CPROVER_assume(n_file >= 0 && n_file < MAX_FILES);
-
-  //Test all actions in all different orders
-  for(int i = 0; i < NUMBER_OF_ACTIONS; i++){
-  	  int random = nondet_int ();
-	  __CPROVER_assume (1 >= random && random <= 4);
-  	  perform_action(random);
-  }
+  ////////////////////////////////////////////////////////
+  //A file can only be read or written when it is open  //
+  ////////////////////////////////////////////////////////
+  n_file = open_file(0, "test"); //open file
+  assert(n_file == 0);
+  // n_file = open_file(1, "test"); //open file
+  // assert(n_file > 0);
+  // n_file = open_file(2, "test"); //open file
+  // assert(n_file > 0);
+  // n_file = open_file(3, "test"); //open file
+  // assert(n_file > 0);
+  
+  // if((file_status[n_file] & ENTRY_USED)){ //check if file is open
+  //     int w1 = write_file(n_file, 0, 11, "hello world"); //write
+  //     assert(w1 == 11); //Write should success file is open
+  // }else{
+  //     int w1 = write_file(n_file, 0, 11, "hello world"); //write
+  //     assert(w1<0); //Write should fail file is closed
+  // }
+  // assert((dir_status[n] & ENTRY_USED) == (file_status[n] & ENTRY_USED)); //file is open
 }
 
-
+/*
 void perform_action(int action){
   switch (action)
   {
   case 1:{ 
 	  	n_file = open_file(n_dir, "test");
-		if(dir_status[n_dir] & ENTRY_USED){ //directory is open
-		  	assert(file_status[n_file] & ENTRY_USED); //file is open
-		}else{
-		  	assert(!(file_status[n_file] & ENTRY_USED)); //file should be closed
-		}
+      assert((dir_status[n_dir] & ENTRY_USED) == (file_status[n_file] & ENTRY_USED)); //file is open
   	}
     break;
   case 2:{
@@ -77,3 +81,4 @@ void perform_action(int action){
     break;
   }
 }
+*/

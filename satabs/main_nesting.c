@@ -13,6 +13,7 @@ int main(){
   // d1 = open_dir(n,"test");
   // assert(d1<0);
 
+<<<<<<< HEAD
   ////////////////////////////////////////////////////////
   //A file can only be read or written when it is open  //
   ////////////////////////////////////////////////////////
@@ -33,17 +34,35 @@ int main(){
   //     assert(w1<0); //Write should fail file is closed
   // }
   // assert((dir_status[n] & ENTRY_USED) == (file_status[n] & ENTRY_USED)); //file is open
+=======
+  //Assume to be in the allowed file range
+  __CPROVER_assume(n_file >= 0 && n_file < MAX_FILES);
+
+   perform_action(2);
+  
+>>>>>>> FETCH_HEAD
 }
 
 /*
 void perform_action(int action){
   switch (action)
   {
+<<<<<<< HEAD
   case 1:{ 
 	  	n_file = open_file(n_dir, "test");
       assert((dir_status[n_dir] & ENTRY_USED) == (file_status[n_file] & ENTRY_USED)); //file is open
   	}
     break;
+=======
+  case 1: 
+            n_file = open_file(n_dir, "test");
+            if(dir_status[n_dir] & ENTRY_USED){ //directory is open
+                assert(file_status[n_file] & ENTRY_USED); //file is open
+            }else{
+                assert(!(file_status[n_file] & ENTRY_USED)); //file should be closed
+            }
+            break;
+>>>>>>> FETCH_HEAD
   case 2:{
   		int w1 = write_file(n_file, 0, 11, "hello world");
 	  	if(file_status[n_file] & ENTRY_USED){

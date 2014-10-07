@@ -1,0 +1,868 @@
+-- specification  G (S4B_green -> (((P1A_locked_curved & P2B_locked_curved) & !T1A_occupied) | (P2B_locked_straight & !T4B_occupied)))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+
+=================================================================
+summary of relevant state transitions (FULL VERSION SHOWN BELOW)
+=================================================================
+
+P1A_locked_curved
+
+state 1 : false
+state 18 : true
+state 23 : false
+state 59 : true
+state 68 : false
+state 98 : true
+state 102 : false
+state 109 : true
+state 114 : false
+state 144 : true
+
+P2B_locked_curved
+
+state 1: false
+state 19 :true
+state 23 :false
+state 53 : true
+state 57 : false
+state 64 : true
+state 68 :false
+state 98 : true
+state 102 :false
+state 110: true
+state 114 : false
+state 144 : true
+
+T1A_occupied
+
+state 1: false
+state 3 : true
+state 5 : false
+state 22 : true
+state 23 : false
+state 26 : true
+state 27 : false
+state 38 : true
+state 39 : false
+state 56 : true
+state 57 : false
+state 67 : true
+state 68 : false
+state 71 : true
+state 72 : false
+state 83 : true
+state 84 : false
+state 101 :true
+state 102 : false
+state 113 : true
+state 114 : false
+state 117 : true
+state 118 : false
+state 129 : true
+state 130 : false
+
+P2B_locked_straight
+
+state 1 : false
+state 16 :true
+state 17 : false
+state 43 : true
+state 52 : false
+state 62 : true
+state 63 : false
+state 88 : true
+state 97 : false
+state 107 : true
+state 108 : false
+state 134 : true
+state 143 : false
+
+
+T4B_occupied
+
+state 1 : false
+state 20 : true
+state 21 : false
+state 54 : true
+state 55 : false
+state 65 : true
+state 66 : false
+state 99 : true
+state 100 : false
+state 111 : true
+state 112 : false
+state 145 : true
+
+S4B_green ::
+
+state 19 -> true [true,true,false,false,false]  =  valid
+state 53 -> true [false,true,false,false,false] = invalid
+state 64 -> true [true,true,false,false,false] = valid
+state 98 -> true [true,true,false,false,false] = valid
+state 110 -> true [true,true,false,false,false] = valid
+state 144 -> true [true,true,false,false,false] = valid
+
+
+=================================================================
+Final System State
+=================================================================
+
+T1B :: No Train
+T2B :: No Train
+T3B :: Train
+T4B :: No Train
+
+T1A :: No Train
+T2A :: No Train
+T3A :: No Train
+T4A :: No Train
+
+P1A :: Not Locked
+P2B :: Locked Curved
+P2A :: Not Locked
+P1B :: Locked Straight
+
+S1A :: Green
+S2A :: Red
+S3A :: Red
+S4A :: Red
+
+S1B :: Green
+S2B :: Red
+S3B :: Green
+S4B :: Green  <<== INVALID!!!!
+
+
+
+
+=================================================================
+Full System Trace
+=================================================================
+
+-> State: 2.1 <-
+  environment.P1A.status = moving
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.P2B.status = moving
+  environment.train.location = T00
+  environment.train.in_bound = TRUE
+  interlocking.S2A_red = TRUE
+  interlocking.S3A_red = TRUE
+  interlocking.S4A_red = TRUE
+  interlocking.S2B_red = TRUE
+  interlocking.S3B_red = TRUE
+  interlocking.S4B_red = TRUE
+  interlocking.P1A_goal_straight = FALSE
+  interlocking.P2A_goal_straight = FALSE
+  interlocking.P1B_goal_straight = FALSE
+  interlocking.P2B_goal_straight = FALSE
+  interlocking.P1A_goal_curved = FALSE
+  interlocking.P2A_goal_curved = FALSE
+  interlocking.P1B_goal_curved = FALSE
+  interlocking.P2B_goal_curved = FALSE
+  P2B_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  P2A_goal_curved = FALSE
+  P1A_goal_curved = FALSE
+  P2B_goal_straight = FALSE
+  P1B_goal_straight = FALSE
+  P2A_goal_straight = FALSE
+  P1A_goal_straight = FALSE
+  S4B_green = FALSE
+  S3B_green = FALSE
+  S2B_green = FALSE
+  S4A_green = FALSE
+  S3A_green = FALSE
+  S2A_green = FALSE
+  S4B_red = TRUE
+  S3B_red = TRUE
+  S2B_red = TRUE
+  S4A_red = TRUE
+  S3A_red = TRUE
+  S2A_red = TRUE
+  P2B_locked_curved = FALSE
+  P1B_locked_curved = FALSE
+  P2A_locked_curved = FALSE
+  P1A_locked_curved = FALSE
+  P2B_locked_straight = FALSE
+  P1B_locked_straight = FALSE
+  P2A_locked_straight = FALSE
+  P1A_locked_straight = FALSE
+  S1B_green = TRUE
+  S1A_green = TRUE
+  S1B_red = FALSE
+  S1A_red = FALSE
+  T4B_occupied = FALSE
+  T3B_occupied = FALSE
+  T2B_occupied = FALSE
+  T1B_occupied = FALSE
+  T4A_occupied = FALSE
+  T3A_occupied = FALSE
+  T2A_occupied = FALSE
+  T1A_occupied = FALSE
+  environment.P2B_locked_curved = FALSE
+  environment.P1B_locked_curved = FALSE
+  environment.P2A_locked_curved = FALSE
+  environment.P1A_locked_curved = FALSE
+  environment.P2B_locked_straight = FALSE
+  environment.P2A_locked_straight = FALSE
+  environment.P1B_locked_straight = FALSE
+  environment.P1A_locked_straight = FALSE
+  environment.S1B_green = TRUE
+  environment.S1A_green = TRUE
+  environment.S1B_red = FALSE
+  environment.S1A_red = FALSE
+  environment.T4B_occupied = FALSE
+  environment.T3B_occupied = FALSE
+  environment.T2B_occupied = FALSE
+  environment.T1B_occupied = FALSE
+  environment.T4A_occupied = FALSE
+  environment.T3A_occupied = FALSE
+  environment.T2A_occupied = FALSE
+  environment.T1A_occupied = FALSE
+  interlocking.S4B_green = FALSE
+  interlocking.S3B_green = FALSE
+  interlocking.S2B_green = FALSE
+  interlocking.S4A_green = FALSE
+  interlocking.S3A_green = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.2 <-
+  environment.train.location = T0A
+  S1A_green = FALSE
+  S1A_red = TRUE
+  environment.S1A_green = FALSE
+  environment.S1A_red = TRUE
+-> State: 2.3 <-
+  environment.train.location = T1A
+  interlocking.P1A_goal_straight = TRUE
+  interlocking.P2B_goal_straight = TRUE
+  P2B_goal_straight = TRUE
+  P1A_goal_straight = TRUE
+  S1A_green = TRUE
+  S1A_red = FALSE
+  T1A_occupied = TRUE
+  environment.S1A_green = TRUE
+  environment.S1A_red = FALSE
+  environment.T1A_occupied = TRUE
+-> State: 2.4 <-
+  environment.P1A.status = straight
+  interlocking.S2A_red = FALSE
+  interlocking.P1A_goal_straight = FALSE
+  P1A_goal_straight = FALSE
+  S2A_green = TRUE
+  S2A_red = FALSE
+  P1A_locked_straight = TRUE
+  environment.P1A_locked_straight = TRUE
+  interlocking.S2A_green = TRUE
+-> State: 2.5 <-
+  environment.train.location = T2A
+  interlocking.S2A_red = TRUE
+  S2A_green = FALSE
+  S2A_red = TRUE
+  T2A_occupied = TRUE
+  T1A_occupied = FALSE
+  environment.T2A_occupied = TRUE
+  environment.T1A_occupied = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.6 <-
+  environment.train.location = T3A
+  interlocking.S3A_red = FALSE
+  interlocking.P2A_goal_curved = TRUE
+  interlocking.P1B_goal_curved = TRUE
+  P1B_goal_curved = TRUE
+  P2A_goal_curved = TRUE
+  S3A_green = TRUE
+  S3A_red = FALSE
+  T3A_occupied = TRUE
+  T2A_occupied = FALSE
+  environment.T3A_occupied = TRUE
+  environment.T2A_occupied = FALSE
+  interlocking.S3A_green = TRUE
+-> State: 2.7 <-
+  environment.P2A.status = curved
+  environment.train.in_bound = FALSE
+  interlocking.S4A_red = FALSE
+  interlocking.P2A_goal_curved = FALSE
+  P2A_goal_curved = FALSE
+  S4A_green = TRUE
+  S4A_red = FALSE
+  P2A_locked_curved = TRUE
+  environment.P2A_locked_curved = TRUE
+  interlocking.S4A_green = TRUE
+-> State: 2.8 <-
+  environment.train.location = T4A
+  interlocking.S2A_red = FALSE
+  interlocking.S4A_red = TRUE
+  S4A_green = FALSE
+  S2A_green = TRUE
+  S4A_red = TRUE
+  S2A_red = FALSE
+  T4A_occupied = TRUE
+  T3A_occupied = FALSE
+  environment.T4A_occupied = TRUE
+  environment.T3A_occupied = FALSE
+  interlocking.S4A_green = FALSE
+  interlocking.S2A_green = TRUE
+-> State: 2.9 <-
+  environment.train.location = T2B
+  T2B_occupied = TRUE
+  T4A_occupied = FALSE
+  environment.T2B_occupied = TRUE
+  environment.T4A_occupied = FALSE
+-> State: 2.10 <-
+  environment.P1B.status = curved
+  environment.train.location = T1B
+  interlocking.P2A_goal_straight = TRUE
+  interlocking.P1B_goal_straight = TRUE
+  interlocking.P1B_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  P1B_goal_straight = TRUE
+  P2A_goal_straight = TRUE
+  P1B_locked_curved = TRUE
+  T2B_occupied = FALSE
+  T1B_occupied = TRUE
+  environment.P1B_locked_curved = TRUE
+  environment.T2B_occupied = FALSE
+  environment.T1B_occupied = TRUE
+-> State: 2.11 <-
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.train.location = T0B
+  P1B_locked_curved = FALSE
+  P2A_locked_curved = FALSE
+  S1B_green = FALSE
+  S1B_red = TRUE
+  T1B_occupied = FALSE
+  environment.P1B_locked_curved = FALSE
+  environment.P2A_locked_curved = FALSE
+  environment.S1B_green = FALSE
+  environment.S1B_red = TRUE
+  environment.T1B_occupied = FALSE
+-> State: 2.12 <-
+  environment.train.location = T00
+  S1B_green = TRUE
+  S1B_red = FALSE
+  environment.S1B_green = TRUE
+  environment.S1B_red = FALSE
+-> State: 2.13 <-
+  environment.train.location = T0B
+  environment.train.in_bound = TRUE
+  S1B_green = FALSE
+  S1B_red = TRUE
+  environment.S1B_green = FALSE
+  environment.S1B_red = TRUE
+-> State: 2.14 <-
+  environment.P1B.status = straight
+  environment.train.location = T1B
+  interlocking.S2B_red = FALSE
+  interlocking.P1B_goal_straight = FALSE
+  P1B_goal_straight = FALSE
+  S2B_green = TRUE
+  S2B_red = FALSE
+  P1B_locked_straight = TRUE
+  S1B_green = TRUE
+  S1B_red = FALSE
+  T1B_occupied = TRUE
+  environment.P1B_locked_straight = TRUE
+  environment.S1B_green = TRUE
+  environment.S1B_red = FALSE
+  environment.T1B_occupied = TRUE
+  interlocking.S2B_green = TRUE
+-> State: 2.15 <-
+  environment.train.location = T2B
+  interlocking.S2B_red = TRUE
+  S2B_green = FALSE
+  S2B_red = TRUE
+  T2B_occupied = TRUE
+  T1B_occupied = FALSE
+  environment.T2B_occupied = TRUE
+  environment.T1B_occupied = FALSE
+  interlocking.S2B_green = FALSE
+-> State: 2.16 <-
+  environment.P2B.status = straight
+  environment.train.location = T3B
+  interlocking.S3B_red = FALSE
+  interlocking.P2B_goal_straight = FALSE
+  interlocking.P1A_goal_curved = TRUE
+  interlocking.P2B_goal_curved = TRUE
+  P2B_goal_curved = TRUE
+  P1A_goal_curved = TRUE
+  P2B_goal_straight = FALSE
+  S3B_green = TRUE
+  S3B_red = FALSE
+  P2B_locked_straight = TRUE
+  T3B_occupied = TRUE
+  T2B_occupied = FALSE
+  environment.P2B_locked_straight = TRUE
+  environment.T3B_occupied = TRUE
+  environment.T2B_occupied = FALSE
+  interlocking.S3B_green = TRUE
+-> State: 2.17 <-
+  environment.P1A.status = moving
+  environment.P2B.status = moving
+  environment.train.in_bound = FALSE
+  interlocking.S2A_red = TRUE
+  interlocking.S3A_red = TRUE
+  S3A_green = FALSE
+  S2A_green = FALSE
+  S3A_red = TRUE
+  S2A_red = TRUE
+  P2B_locked_straight = FALSE
+  P1A_locked_straight = FALSE
+  environment.P2B_locked_straight = FALSE
+  environment.P1A_locked_straight = FALSE
+  interlocking.S3A_green = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.18 <-
+  environment.P1A.status = curved
+  interlocking.P1A_goal_curved = FALSE
+  P1A_goal_curved = FALSE
+  P1A_locked_curved = TRUE
+  environment.P1A_locked_curved = TRUE
+-> State: 2.19 <-
+  environment.P2B.status = curved
+  interlocking.S4B_red = FALSE
+  interlocking.P2B_goal_curved = FALSE
+  P2B_goal_curved = FALSE
+  S4B_green = TRUE
+  S4B_red = FALSE
+  P2B_locked_curved = TRUE
+  environment.P2B_locked_curved = TRUE
+  interlocking.S4B_green = TRUE
+-- Loop starts here
+-> State: 2.20 <-
+  environment.train.location = T4B
+  interlocking.S2B_red = FALSE
+  interlocking.S4B_red = TRUE
+  S4B_green = FALSE
+  S2B_green = TRUE
+  S4B_red = TRUE
+  S2B_red = FALSE
+  T4B_occupied = TRUE
+  T3B_occupied = FALSE
+  environment.T4B_occupied = TRUE
+  environment.T3B_occupied = FALSE
+  interlocking.S4B_green = FALSE
+  interlocking.S2B_green = TRUE
+-> State: 2.21 <-
+  environment.train.location = T2A
+  T4B_occupied = FALSE
+  T2A_occupied = TRUE
+  environment.T4B_occupied = FALSE
+  environment.T2A_occupied = TRUE
+-> State: 2.22 <-
+  environment.train.location = T1A
+  interlocking.P1A_goal_straight = TRUE
+  interlocking.P2B_goal_straight = TRUE
+  P2B_goal_straight = TRUE
+  P1A_goal_straight = TRUE
+  T2A_occupied = FALSE
+  T1A_occupied = TRUE
+  environment.T2A_occupied = FALSE
+  environment.T1A_occupied = TRUE
+-> State: 2.23 <-
+  environment.P1A.status = moving
+  environment.P2B.status = moving
+  environment.train.location = T0A
+  P2B_locked_curved = FALSE
+  P1A_locked_curved = FALSE
+  S1A_green = FALSE
+  S1A_red = TRUE
+  T1A_occupied = FALSE
+  environment.P2B_locked_curved = FALSE
+  environment.P1A_locked_curved = FALSE
+  environment.S1A_green = FALSE
+  environment.S1A_red = TRUE
+  environment.T1A_occupied = FALSE
+-> State: 2.24 <-
+  environment.train.location = T00
+  S1A_green = TRUE
+  S1A_red = FALSE
+  environment.S1A_green = TRUE
+  environment.S1A_red = FALSE
+-> State: 2.25 <-
+  environment.train.location = T0A
+  environment.train.in_bound = TRUE
+  S1A_green = FALSE
+  S1A_red = TRUE
+  environment.S1A_green = FALSE
+  environment.S1A_red = TRUE
+-> State: 2.26 <-
+  environment.P1A.status = straight
+  environment.train.location = T1A
+  interlocking.S2A_red = FALSE
+  interlocking.P1A_goal_straight = FALSE
+  P1A_goal_straight = FALSE
+  S2A_green = TRUE
+  S2A_red = FALSE
+  P1A_locked_straight = TRUE
+  S1A_green = TRUE
+  S1A_red = FALSE
+  T1A_occupied = TRUE
+  environment.P1A_locked_straight = TRUE
+  environment.S1A_green = TRUE
+  environment.S1A_red = FALSE
+  environment.T1A_occupied = TRUE
+  interlocking.S2A_green = TRUE
+-> State: 2.27 <-
+  environment.train.location = T2A
+  interlocking.S2A_red = TRUE
+  S2A_green = FALSE
+  S2A_red = TRUE
+  T2A_occupied = TRUE
+  T1A_occupied = FALSE
+  environment.T2A_occupied = TRUE
+  environment.T1A_occupied = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.28 <-
+  environment.P2A.status = straight
+  environment.train.location = T3A
+  interlocking.S3A_red = FALSE
+  interlocking.P2A_goal_straight = FALSE
+  interlocking.P2A_goal_curved = TRUE
+  interlocking.P1B_goal_curved = TRUE
+  P1B_goal_curved = TRUE
+  P2A_goal_curved = TRUE
+  P2A_goal_straight = FALSE
+  S3A_green = TRUE
+  S3A_red = FALSE
+  P2A_locked_straight = TRUE
+  T3A_occupied = TRUE
+  T2A_occupied = FALSE
+  environment.P2A_locked_straight = TRUE
+  environment.T3A_occupied = TRUE
+  environment.T2A_occupied = FALSE
+  interlocking.S3A_green = TRUE
+-> State: 2.29 <-
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.train.in_bound = FALSE
+  interlocking.S2B_red = TRUE
+  interlocking.S3B_red = TRUE
+  S3B_green = FALSE
+  S2B_green = FALSE
+  S3B_red = TRUE
+  S2B_red = TRUE
+  P1B_locked_straight = FALSE
+  P2A_locked_straight = FALSE
+  environment.P2A_locked_straight = FALSE
+  environment.P1B_locked_straight = FALSE
+  interlocking.S3B_green = FALSE
+  interlocking.S2B_green = FALSE
+-> State: 2.30 <-
+  environment.P1B.status = curved
+  interlocking.P1B_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  P1B_locked_curved = TRUE
+  environment.P1B_locked_curved = TRUE
+-> State: 2.31 <-
+  environment.P2A.status = curved
+  interlocking.S4A_red = FALSE
+  interlocking.P2A_goal_curved = FALSE
+  P2A_goal_curved = FALSE
+  S4A_green = TRUE
+  S4A_red = FALSE
+  P2A_locked_curved = TRUE
+  environment.P2A_locked_curved = TRUE
+  interlocking.S4A_green = TRUE
+-> State: 2.32 <-
+  environment.train.location = T4A
+  interlocking.S2A_red = FALSE
+  interlocking.S4A_red = TRUE
+  S4A_green = FALSE
+  S2A_green = TRUE
+  S4A_red = TRUE
+  S2A_red = FALSE
+  T4A_occupied = TRUE
+  T3A_occupied = FALSE
+  environment.T4A_occupied = TRUE
+  environment.T3A_occupied = FALSE
+  interlocking.S4A_green = FALSE
+  interlocking.S2A_green = TRUE
+-> State: 2.33 <-
+  environment.train.location = T2B
+  T2B_occupied = TRUE
+  T4A_occupied = FALSE
+  environment.T2B_occupied = TRUE
+  environment.T4A_occupied = FALSE
+-> State: 2.34 <-
+  environment.train.location = T1B
+  interlocking.P2A_goal_straight = TRUE
+  interlocking.P1B_goal_straight = TRUE
+  P1B_goal_straight = TRUE
+  P2A_goal_straight = TRUE
+  T2B_occupied = FALSE
+  T1B_occupied = TRUE
+  environment.T2B_occupied = FALSE
+  environment.T1B_occupied = TRUE
+-> State: 2.35 <-
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.train.location = T0B
+  P1B_locked_curved = FALSE
+  P2A_locked_curved = FALSE
+  S1B_green = FALSE
+  S1B_red = TRUE
+  T1B_occupied = FALSE
+  environment.P1B_locked_curved = FALSE
+  environment.P2A_locked_curved = FALSE
+  environment.S1B_green = FALSE
+  environment.S1B_red = TRUE
+  environment.T1B_occupied = FALSE
+-> State: 2.36 <-
+  environment.P2A.status = straight
+  environment.train.location = T00
+  interlocking.P2A_goal_straight = FALSE
+  P2A_goal_straight = FALSE
+  P2A_locked_straight = TRUE
+  S1B_green = TRUE
+  S1B_red = FALSE
+  environment.P2A_locked_straight = TRUE
+  environment.S1B_green = TRUE
+  environment.S1B_red = FALSE
+-> State: 2.37 <-
+  environment.train.location = T0A
+  environment.train.in_bound = TRUE
+  S1A_green = FALSE
+  S1A_red = TRUE
+  environment.S1A_green = FALSE
+  environment.S1A_red = TRUE
+-> State: 2.38 <-
+  environment.train.location = T1A
+  interlocking.S3A_red = TRUE
+  S3A_green = FALSE
+  S3A_red = TRUE
+  S1A_green = TRUE
+  S1A_red = FALSE
+  T1A_occupied = TRUE
+  environment.S1A_green = TRUE
+  environment.S1A_red = FALSE
+  environment.T1A_occupied = TRUE
+  interlocking.S3A_green = FALSE
+-> State: 2.39 <-
+  environment.train.location = T2A
+  interlocking.S2A_red = TRUE
+  S2A_green = FALSE
+  S2A_red = TRUE
+  T2A_occupied = TRUE
+  T1A_occupied = FALSE
+  environment.T2A_occupied = TRUE
+  environment.T1A_occupied = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.40 <-
+  environment.P1B.status = straight
+  environment.train.location = T3A
+  interlocking.S3A_red = FALSE
+  interlocking.S2B_red = FALSE
+  interlocking.S3B_red = FALSE
+  interlocking.P1B_goal_straight = FALSE
+  interlocking.P2A_goal_curved = TRUE
+  interlocking.P1B_goal_curved = TRUE
+  P1B_goal_curved = TRUE
+  P2A_goal_curved = TRUE
+  P1B_goal_straight = FALSE
+  S3B_green = TRUE
+  S2B_green = TRUE
+  S3A_green = TRUE
+  S3B_red = FALSE
+  S2B_red = FALSE
+  S3A_red = FALSE
+  P1B_locked_straight = TRUE
+  T3A_occupied = TRUE
+  T2A_occupied = FALSE
+  environment.P1B_locked_straight = TRUE
+  environment.T3A_occupied = TRUE
+  environment.T2A_occupied = FALSE
+  interlocking.S3B_green = TRUE
+  interlocking.S2B_green = TRUE
+  interlocking.S3A_green = TRUE
+-> State: 2.41 <-
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.train.in_bound = FALSE
+  interlocking.S2B_red = TRUE
+  interlocking.S3B_red = TRUE
+  S3B_green = FALSE
+  S2B_green = FALSE
+  S3B_red = TRUE
+  S2B_red = TRUE
+  P1B_locked_straight = FALSE
+  P2A_locked_straight = FALSE
+  environment.P2A_locked_straight = FALSE
+  environment.P1B_locked_straight = FALSE
+  interlocking.S3B_green = FALSE
+  interlocking.S2B_green = FALSE
+-> State: 2.42 <-
+  environment.P2A.status = curved
+  interlocking.S4A_red = FALSE
+  interlocking.P2A_goal_curved = FALSE
+  P2A_goal_curved = FALSE
+  S4A_green = TRUE
+  S4A_red = FALSE
+  P2A_locked_curved = TRUE
+  environment.P2A_locked_curved = TRUE
+  interlocking.S4A_green = TRUE
+-> State: 2.43 <-
+  environment.P2B.status = straight
+  environment.train.location = T4A
+  interlocking.S2A_red = FALSE
+  interlocking.S4A_red = TRUE
+  interlocking.P2B_goal_straight = FALSE
+  P2B_goal_straight = FALSE
+  S4A_green = FALSE
+  S2A_green = TRUE
+  S4A_red = TRUE
+  S2A_red = FALSE
+  P2B_locked_straight = TRUE
+  T4A_occupied = TRUE
+  T3A_occupied = FALSE
+  environment.P2B_locked_straight = TRUE
+  environment.T4A_occupied = TRUE
+  environment.T3A_occupied = FALSE
+  interlocking.S4A_green = FALSE
+  interlocking.S2A_green = TRUE
+-> State: 2.44 <-
+  environment.train.location = T2B
+  T2B_occupied = TRUE
+  T4A_occupied = FALSE
+  environment.T2B_occupied = TRUE
+  environment.T4A_occupied = FALSE
+-> State: 2.45 <-
+  environment.P1B.status = curved
+  environment.train.location = T1B
+  interlocking.P2A_goal_straight = TRUE
+  interlocking.P1B_goal_straight = TRUE
+  interlocking.P1B_goal_curved = FALSE
+  P1B_goal_curved = FALSE
+  P1B_goal_straight = TRUE
+  P2A_goal_straight = TRUE
+  P1B_locked_curved = TRUE
+  T2B_occupied = FALSE
+  T1B_occupied = TRUE
+  environment.P1B_locked_curved = TRUE
+  environment.T2B_occupied = FALSE
+  environment.T1B_occupied = TRUE
+-> State: 2.46 <-
+  environment.P1B.status = moving
+  environment.P2A.status = moving
+  environment.train.location = T0B
+  P1B_locked_curved = FALSE
+  P2A_locked_curved = FALSE
+  S1B_green = FALSE
+  S1B_red = TRUE
+  T1B_occupied = FALSE
+  environment.P1B_locked_curved = FALSE
+  environment.P2A_locked_curved = FALSE
+  environment.S1B_green = FALSE
+  environment.S1B_red = TRUE
+  environment.T1B_occupied = FALSE
+-> State: 2.47 <-
+  environment.train.location = T00
+  S1B_green = TRUE
+  S1B_red = FALSE
+  environment.S1B_green = TRUE
+  environment.S1B_red = FALSE
+-> State: 2.48 <-
+  environment.train.location = T0B
+  environment.train.in_bound = TRUE
+  S1B_green = FALSE
+  S1B_red = TRUE
+  environment.S1B_green = FALSE
+  environment.S1B_red = TRUE
+-> State: 2.49 <-
+  environment.P1B.status = straight
+  environment.train.location = T1B
+  interlocking.S2B_red = FALSE
+  interlocking.P1B_goal_straight = FALSE
+  P1B_goal_straight = FALSE
+  S2B_green = TRUE
+  S2B_red = FALSE
+  P1B_locked_straight = TRUE
+  S1B_green = TRUE
+  S1B_red = FALSE
+  T1B_occupied = TRUE
+  environment.P1B_locked_straight = TRUE
+  environment.S1B_green = TRUE
+  environment.S1B_red = FALSE
+  environment.T1B_occupied = TRUE
+  interlocking.S2B_green = TRUE
+-> State: 2.50 <-
+  environment.train.location = T2B
+  interlocking.S2B_red = TRUE
+  S2B_green = FALSE
+  S2B_red = TRUE
+  T2B_occupied = TRUE
+  T1B_occupied = FALSE
+  environment.T2B_occupied = TRUE
+  environment.T1B_occupied = FALSE
+  interlocking.S2B_green = FALSE
+-> State: 2.51 <-
+  environment.train.location = T3B
+  interlocking.S3B_red = FALSE
+  interlocking.P1A_goal_curved = TRUE
+  interlocking.P2B_goal_curved = TRUE
+  P2B_goal_curved = TRUE
+  P1A_goal_curved = TRUE
+  S3B_green = TRUE
+  S3B_red = FALSE
+  T3B_occupied = TRUE
+  T2B_occupied = FALSE
+  environment.T3B_occupied = TRUE
+  environment.T2B_occupied = FALSE
+  interlocking.S3B_green = TRUE
+-> State: 2.52 <-
+  environment.P1A.status = moving
+  environment.P2B.status = moving
+  environment.train.in_bound = FALSE
+  interlocking.S2A_red = TRUE
+  interlocking.S3A_red = TRUE
+  S3A_green = FALSE
+  S2A_green = FALSE
+  S3A_red = TRUE
+  S2A_red = TRUE
+  P2B_locked_straight = FALSE
+  P1A_locked_straight = FALSE
+  environment.P2B_locked_straight = FALSE
+  environment.P1A_locked_straight = FALSE
+  interlocking.S3A_green = FALSE
+  interlocking.S2A_green = FALSE
+-> State: 2.53 <-
+  environment.P2B.status = curved
+  interlocking.S4B_red = FALSE
+  interlocking.P2B_goal_curved = FALSE
+  P2B_goal_curved = FALSE
+  S4B_green = TRUE
+  S4B_red = FALSE
+  P2B_locked_curved = TRUE
+  environment.P2B_locked_curved = TRUE
+  interlocking.S4B_green = TRUE
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -11,10 +11,22 @@ MODULE Points(goal_straight,goal_curved)
         TRUE                            : status;
     esac;
   FAIRNESS
-    (status = straight)
-  FAIRNESS
-    (status = curved)
-
+    !(status = moving)
+    
+--MODULE Points(goal_straight,goal_curved)
+  --VAR
+    --status : {straight,moving,curved};
+  --ASSIGN
+    --init(status):=moving;
+    --next(status):=case
+        --goal_straight & status=curved   : moving;
+        --goal_straight                   : straight;
+        --goal_curved & status=straight   : moving;
+        --goal_curved                     : curved;        
+        --TRUE                            : status;
+    --esac;
+    
+--TODO FIX DELAY PROBLEM
     
     
 MODULE Train (
@@ -85,12 +97,12 @@ MODULE Environment(
   DEFINE
     T1A_occupied := train_A.location = T1A | train_B.location = T1A;
     T2A_occupied := train_A.location = T2A | train_B.location = T2A;
-    T3A_occupied := train_A.location = T3A | train_B.location = T2A;
-    T4A_occupied := train_A.location = T4A | train_B.location = T2A;
-    T1B_occupied := train_A.location = T1B | train_B.location = T2A;
-    T2B_occupied := train_A.location = T2B | train_B.location = T2A;
-    T3B_occupied := train_A.location = T3B | train_B.location = T2A;
-    T4B_occupied := train_A.location = T4B | train_B.location = T2A;
+    T3A_occupied := train_A.location = T3A | train_B.location = T3A;
+    T4A_occupied := train_A.location = T4A | train_B.location = T4A;
+    T1B_occupied := train_A.location = T1B | train_B.location = T1B;
+    T2B_occupied := train_A.location = T2B | train_B.location = T2B;
+    T3B_occupied := train_A.location = T3B | train_B.location = T3B;
+    T4B_occupied := train_A.location = T4B | train_B.location = T4B;
     S1A_red      := train_A.location = T0A | train_B.location = T0A; 
     S1B_red      := train_A.location = T0B | train_B.location = T0B;
 

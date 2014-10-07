@@ -39,10 +39,13 @@ LTLSPEC G (S4B_red -> (!P2B_locked_straight | !(P1A_locked_curved & P2B_locked_c
 LTLSPEC G (S4A_red -> (!P2A_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P2A_locked_straight & T4A_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T1B_occupied)))
 LTLSPEC G (S2B_red -> (!P1B_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P1B_locked_straight & T3B_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T3A_occupied)))
 
---for signal without interlocks, with internal tracks
-LTLSPEC G (S3B_red -> !P1B_locked_straight | T2B_occupied | T1B_occupied)
-LTLSPEC G (S3A_red -> !P1A_locked_straight | T2A_occupied | T1A_occupied)
 
+
+--for signal without interlocks, with internal tracks
+--LTLSPEC G (S3B_red -> !P1B_locked_straight | T2B_occupied | T1B_occupied)
+--LTLSPEC G (S3A_red -> !P1A_locked_straight | T2A_occupied | T1A_occupied)
+LTLSPEC G (S3B_red -> !P1A_locked_straight | !P2A_locked_straight | !P1B_locked_straight | !P2B_locked_straight | T2B_occupied | T1B_occupied)
+LTLSPEC G (S3A_red -> !P1A_locked_straight | !P2A_locked_straight | !P1B_locked_straight | !P2B_locked_straight | T2A_occupied | T1A_occupied)
 
 --safety, system should never issue conflicting commands, a.k.a only goal_straight or goal_curved should be set at any given time
 
@@ -88,7 +91,7 @@ CTLSPEC EF T3B_occupied
 
 --safety, a train should stay on its track if both the lights are red (trains do not dissappear)
 LTLSPEC G ((T1A_occupied & S2A_red & S1A_red) -> X T1A_occupied)
-LTLSPEC G ((T3A_occupied & S3A_red & S4A_red) -> X T3A_occupied)
+LTLSPEC G ((T3A_occupied & S3A_red & S4A_red) -> X T3A_occupied) 
 LTLSPEC G ((T3B_occupied & S4B_red & S3B_red) -> X T3B_occupied)
 LTLSPEC G ((T1B_occupied & S2B_red & S1B_red) -> X T1B_occupied)
 
@@ -98,14 +101,23 @@ CTLSPEC EF (T3A_occupied & T3B_occupied)
 
 --liveness. A train should always move at some point in time. Defined as, if a track is occupied, 
 --there should be a state in the future where the track is no longer occupied
-LTLSPEC G (T1A_occupied -> F !T1A_occupied)
 LTLSPEC G (T2A_occupied -> F !T2A_occupied)
 LTLSPEC G (T3A_occupied -> F !T3A_occupied)
 LTLSPEC G (T4A_occupied -> F !T4A_occupied)
-LTLSPEC G (T1B_occupied -> F !T1B_occupied)
 LTLSPEC G (T2B_occupied -> F !T2B_occupied)
 LTLSPEC G (T3B_occupied -> F !T3B_occupied)
 LTLSPEC G (T4B_occupied -> F !T4B_occupied)
+--for the entry tracks T1A and T1B this property has to be slightly modified, since we cannot stop
+--trains from entering the system, and a avlid situation exists where train keep arriving from 1 direction
+--in such a way that when 1 train leaves, the other immediately follows. This would mean the track 1A is always
+--occupied, and the trains are always moving. This is a valid use case
+LTLSPEC G (T1B_occupied -> (F !T1B_occupied) | (G !T3A_occupied) )
+LTLSPEC G (T1A_occupied -> (F !T1A_occupied) | (G !T3B_occupied) ) 
+
+
+--safety, a train should never give a command to move a lock, when the lock is occupied
+LTLSPEC G ((P1A_goal_straight | P1A_goal_curved | P2B_goal_straight | P2B_goal_curved) -> (!T4B_occupied & !T2A_occupied))
+LTLSPEC G ((P1B_goal_straight | P1B_goal_curved | P2A_goal_straight | P2A_goal_curved) -> (!T4A_occupied & !T2B_occupied))
 
 --liveness. Interlocks should be used by the system, otherwise they could be left out
 --CTLSPEC AG AF (P1A_locked_straight) 

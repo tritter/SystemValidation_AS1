@@ -11,9 +11,9 @@ MODULE Points(goal_straight,goal_curved)
         TRUE                            : status;
     esac;
   FAIRNESS
-    (status = straight)
-  FAIRNESS
-    (status = curved)
+    !(status = moving)
+  --FAIRNESS
+    --(status = curved)
 
     
     

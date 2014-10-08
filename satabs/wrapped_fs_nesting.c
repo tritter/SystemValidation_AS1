@@ -21,22 +21,26 @@ void init_fs(){
 
 
   int i;
-  for(i=0;i<MAX_FILES;i++){
-    file_status[i]=0;
-    file_parent[i]=-1;
-    if(i < MAX_DIRS){
-        file_parent[i]=i;
-        create_dir(i-1, "test");
-        create_file(i,"test");
-    }else{
-        create_file(MAX_FILES-i, "test2");
-    }
-  }
-  for(i=0; i<MAX_DIRS;i++){
-    dir_status[i]=0;  
-  }
-  dir_status[0]|=ENTRY_USED;
+  // for(i=0; i<MAX_DIRS;i++){
+  //   dir_status[i]=0; 
+  //   create_dir(i, "test"); 
+  // }
+  // for(i=0;i<MAX_FILES;i++){
+  //   file_status[i]=0;
+  //   file_parent[i]=-1;
+  //   if(i < MAX_DIRS){
+  //       file_parent[i]=i;
+  //   }
+  //       create_file(i,"test");
+  // }
+  // dir_status[-1]|= ENTRY_USED;
+
+  // file_status[0]=0;
+  // file_parent[0]=0;
+  // create_file(0,"test");
   fs_init_root(&dirs[0]);
+    create_dir(0, "test");
+
 }
 
 int open_dir(int parent,char*name){
@@ -52,6 +56,7 @@ int open_dir(int parent,char*name){
     }
     for(i=1;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
+            dir_status[i]|=ENTRY_USED;
             fs_open_dir(&dirs[parent],name,&dirs[i]);
             return i;
         }
@@ -61,18 +66,17 @@ int open_dir(int parent,char*name){
 
 int create_dir(int parent,char*name){
     int i;
-    if (parent < 0 || parent > MAX_DIRS){
-        return ERR_INVALID_ARG;
-    }
-    if (dir_status[parent]&ENTRY_USED==0){
-        return ERR_NOT_OPEN;
-    }
-    if (fs_exists_dir(&dirs[parent],name)){
-        return ERR_EXISTS;
-    }
-    for(i=1;i<MAX_DIRS;i++){
+    // if (parent < -1 || parent > MAX_DIRS){
+    //     return ERR_INVALID_ARG;
+    // }
+    // if (dir_status[parent]&ENTRY_USED==0){
+    //     return ERR_NOT_OPEN;
+    // }
+    // if (fs_exists_dir(&dirs[parent],name)){
+    //     return ERR_EXISTS;
+    // }
+    for(i=0;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
-            dir_status[i]|=ENTRY_USED;
             fs_create_dir(&dirs[parent],name,&dirs[i]);
             return i;
         }

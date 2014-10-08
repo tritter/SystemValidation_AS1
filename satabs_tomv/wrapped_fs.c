@@ -49,6 +49,7 @@ int open_dir(int parent,char*name){
     }
     for(i=1;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
+            dir_status[i]|=ENTRY_USED;
             fs_open_dir(&dirs[parent],name,&dirs[i]);
             return i;
         }
@@ -69,6 +70,7 @@ int create_dir(int parent,char*name){
     }
     for(i=1;i<MAX_DIRS;i++){
         if (dir_status[i]&ENTRY_USED==0){
+            dir_status[i]|=ENTRY_USED;
             fs_create_dir(&dirs[parent],name,&dirs[i]);
             return i;
         }
@@ -89,6 +91,7 @@ int close_dir(int id){
             close_file(i);
         }
     }
+    dir_status[id]&=~ENTRY_USED;
     fs_close_dir(&dirs[id]);
 }
 

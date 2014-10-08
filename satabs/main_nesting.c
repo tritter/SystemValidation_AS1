@@ -46,22 +46,11 @@ int main(){
 void perform_action(int action){
   switch (action)
   {
-<<<<<<< HEAD
   case 1:{ 
 	  	n_file = open_file(n_dir, "test");
       assert((dir_status[n_dir] & ENTRY_USED) == (file_status[n_file] & ENTRY_USED)); //file is open
   	}
     break;
-=======
-  case 1: 
-            n_file = open_file(n_dir, "test");
-            if(dir_status[n_dir] & ENTRY_USED){ //directory is open
-                assert(file_status[n_file] & ENTRY_USED); //file is open
-            }else{
-                assert(!(file_status[n_file] & ENTRY_USED)); //file should be closed
-            }
-            break;
->>>>>>> FETCH_HEAD
   case 2:{
   		int w1 = write_file(n_file, 0, 11, "hello world");
 	  	if(file_status[n_file] & ENTRY_USED){

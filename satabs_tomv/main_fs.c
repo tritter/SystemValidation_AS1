@@ -62,6 +62,19 @@ int main(){
   #endif
   
   #ifdef DIR_TREE_OPEN
+    int d_opened = nondet_int();
+    __CPROVER_assume(d_opened==(0) || d_opened==(0 | ENTRY_USED) );
+    int nd = nondet_int();
+    __CPROVER_assume(0 <= nd && nd < MAX_DIRS);
+
+    //set the open closde state for this directory
+    dir_status[nd] = d_opened;
+
+    //Loop through all dirs to root dir
+    for(int i = nd; i > 0; i--){
+      //Check if dir is open
+      assert(TEST_DIR_OPEN(i));
+    }
   #endif
 
 }

@@ -13,35 +13,50 @@ CTLSPEC AG (S4B_red | S4B_green)
 
 
 --safety, signal should always be green when the train can safely move to the next section
---defined as signal green implies that the train can safely move to the next track (this does not yet specify
---that the signal has to be green when the track is available. for this we need the next spec also)
+--defined as if track is safe, signal should be green. This does not say anything about the unsage situation
+--for this we need the red spec also
+
+--for signals with interlocks (simple-case / full-case)
+
+--S2A and S2B are considered safe when the train can either move over a curved or straight lock as intented
+--however, the signal should only be green when the train can move straight, for correct/intended lock operation
+LTLSPEC G ((P1A_locked_straight & P2B_locked_straight & !T2A_occupied & !T3A_occupied & !T4B_occupied) -> S2A_green)
+LTLSPEC G ((P1B_locked_straight & P2A_locked_straight & !T2B_occupied & !T3B_occupied & !T4A_occupied) -> S2B_green)
+
+--S3A and S3B are considered safe when the train can move straight
+LTLSPEC G ((P1A_locked_straight & P2B_locked_straight & !T2A_occupied & !T4B_occupied & !T1A_occupied) -> S3A_green)
+LTLSPEC G ((P1B_locked_straight & P2A_locked_straight & !T2B_occupied & !T4A_occupied & !T1B_occupied) -> S3B_green)
 
 
---for signals with interlocks
-LTLSPEC G (S2A_green -> ((P1A_locked_curved & P2B_locked_curved & !T3B_occupied & !T2A_occupied & !T4B_occupied) | (P1A_locked_straight & P2B_locked_straight & !T2A_occupied & !T3A_occupied)))
-LTLSPEC G (S4B_green -> (P1A_locked_curved & P2B_locked_curved & !T1A_occupied & !T4B_occupied & !T2A_occupied) )
-LTLSPEC G (S4A_green -> (P2A_locked_curved & P1B_locked_curved & !T1B_occupied & !T4A_occupied & !T2B_occupied) )
-LTLSPEC G (S2B_green -> ((P2A_locked_curved & P1B_locked_curved & !T3A_occupied & !T2B_occupied & !T4A_occupied) | (P1B_locked_straight & P2A_locked_straight & !T2B_occupied & !T3B_occupied)))
+--FOR SIMPLE CASE ONLY
 
---for signal without interlocks, with internal tracks (Lock is considered not available when not both ends of the lock are locked!!!)
-LTLSPEC G (S3B_green -> (P1B_locked_straight & P2A_locked_straight & !T2B_occupied & !T1B_occupied))
-LTLSPEC G (S3A_green -> (P1A_locked_straight & P2B_locked_straight & !T2A_occupied & !T1A_occupied))
+--S4A and S4B are considered safe when the train can move curved only
+LTLSPEC G ((P1B_locked_curved & P2A_locked_curved & !T2B_occupied & !T4A_occupied & !T1B_occupied) -> S4A_green)
+LTLSPEC G ((P1A_locked_curved & P2B_locked_curved & !T2A_occupied & !T4B_occupied & !T1A_occupied) -> S4B_green)
 
---safety, signal should always be green when the train can safely move to the next section
---define as, signal red implies that the train cannot safely mvoe to the next track. (together with the previous 
---property, this ensures that the signal cannot be red when the next track is available, and it cannot be green
---when the next track is not available. Since signal are always red or green, this checks the proper
---behaviour.)
+--FOR FULL CASE ONLY (requires synchronization)
 
---for signals with interlocks
-LTLSPEC G (S2A_red -> (!P1A_locked_straight | !(P1A_locked_curved & P2B_locked_curved)) | (P1A_locked_straight & T3A_occupied) | (P1A_locked_curved & P2B_locked_curved & (T4B_occupied | T2A_occupied | T3B_occupied)))
-LTLSPEC G (S4B_red -> (!P2B_locked_straight | !(P1A_locked_curved & P2B_locked_curved)) | (P2B_locked_straight & T4B_occupied) | (P1A_locked_curved & P2B_locked_curved & (T4B_occupied | T2A_occupied | T1A_occupied)))
-LTLSPEC G (S4A_red -> (!P2A_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P2A_locked_straight & T4A_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T1B_occupied)))
-LTLSPEC G (S2B_red -> (!P1B_locked_straight | !(P1B_locked_curved & P2A_locked_curved)) | (P1B_locked_straight & T3B_occupied) | (P1A_locked_curved & P2A_locked_curved & (T4A_occupied | T2B_occupied | T3A_occupied)))
+--S4A and S4B are considered safe when both trains can move curved only
+LTLSPEC G ((P1A_locked_curved & P1B_locked_curved & P2A_locked_curved & P2B_locked_curved & !T2B_occupied & !T4A_occupied & !T1B_occupied) -> S4A_green)
+LTLSPEC G ((P1A_locked_curved & P1B_locked_curved & P2A_locked_curved & P2B_locked_curved & !T2A_occupied & !T4B_occupied & !T1A_occupied) -> S4B_green)
 
---for signal without interlocks, with internal tracks (Lock is considered not available when not both ends of the lock are locked!!!)
-LTLSPEC G (S3B_red -> !P1B_locked_straight | !P2A_locked_straight | T2B_occupied | T1B_occupied)
-LTLSPEC G (S3A_red -> !P1A_locked_straight | !P2B_locked_straight | T2A_occupied | T1A_occupied)
+
+--safety, signal should always be red when a train is not allowed to move to the next section
+--defined as, if track or lock is not set for safe passage, this should imply the corresponding signal is red
+
+--for signals with interlocks (simple case / full-case)
+LTLSPEC G (!P1A_locked_straight | !P2B_locked_straight | T2A_occupied | T3A_occupied | T4B_occupied -> S2A_red)
+LTLSPEC G (!P1B_locked_straight | !P2A_locked_straight | T2B_occupied | T3B_occupied | T4A_occupied -> S2B_red)
+LTLSPEC G (!P1A_locked_straight | !P2B_locked_straight | T2A_occupied | T1A_occupied | T4B_occupied -> S3A_red)
+LTLSPEC G (!P1B_locked_straight | !P2A_locked_straight | T2B_occupied | T1B_occupied | T4A_occupied -> S3B_red)
+LTLSPEC G (!P2A_locked_curved | !P1B_locked_curved | T4A_occupied | T2B_occupied | T1B_occupied -> S4A_red)
+LTLSPEC G (!P2B_locked_curved | !P1A_locked_curved | T4B_occupied | T2A_occupied | T1A_occupied -> S4B_red)
+
+
+--for signals with interlocks (full case only, checks for synchronization)
+LTLSPEC G (!P1B_locked_curved | !P2A_locked_curved | !P1A_locked_curved | !P2B_locked_curved | T4A_occupied | T2B_occupied | T1B_occupied  -> S4A_red)
+LTLSPEC G (!P1B_locked_curved | !P2A_locked_curved | !P1A_locked_curved | !P2B_locked_curved | T4B_occupied | T2A_occupied | T1A_occupied  -> S4B_red)
+
 
 --safety, system should never issue conflicting commands, a.k.a only goal_straight or goal_curved should be set at any given time
 
@@ -115,13 +130,4 @@ LTLSPEC G (T1A_occupied -> (F !T1A_occupied) | (G !T3B_occupied) )
 LTLSPEC G ((P1A_goal_straight | P1A_goal_curved | P2B_goal_straight | P2B_goal_curved) -> (!T4B_occupied & !T2A_occupied))
 LTLSPEC G ((P1B_goal_straight | P1B_goal_curved | P2A_goal_straight | P2A_goal_curved) -> (!T4A_occupied & !T2B_occupied))
 
---liveness. Interlocks should be used by the system, otherwise they could be left out
---CTLSPEC AG AF (P1A_locked_straight) 
---CTLSPEC AG AF (P1A_locked_curved) 
---CTLSPEC AG AF (P1B_locked_straight) 
---CTLSPEC AG AF (P1B_locked_curved) 
---CTLSPEC AG AF (P2A_locked_straight) 
---CTLSPEC AG AF (P2A_locked_curved) 
---CTLSPEC AG AF (P2B_locked_straight) 
---CTLSPEC AG AF (P2B_locked_curved) 
 

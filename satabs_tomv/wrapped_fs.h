@@ -4,8 +4,8 @@
 //=================DEFINITION CHANGES=========================
 
 //#define BOUNDS_CHECK             //checks if any arrays go out of bounds for part2.1
-#define FILE_READ_WRITE        //checks if a file can only be read/written to if its opened for part2.2.a
-//#define FILE_OPEN              //checks if a file can only be opened if its folder is opened
+//#define FILE_READ_WRITE        //checks if a file can only be read/written to if its opened for part2.2.a
+#define FILE_OPEN              //checks if a file can only be opened if its folder is opened
 //#define DIR_TREE_OPEN          //check if a folder can only be opened if all its ancestors are open part2.2c
 
 #define USE_BOUND_FIX            //fixes the out of bounds issues found by BOUNDS_CHECK
@@ -30,6 +30,7 @@
 //=================ADDED GLOBAL VARIABLE DEFINITIONS=========================
 extern static int    file_status[MAX_FILES];
 extern static int    dir_status[MAX_DIRS];
+extern static int    file_parent[MAX_FILES];
 //=================END OF ADDED GLOBAL VARIABLE DEFINITIONS=========================
 
 

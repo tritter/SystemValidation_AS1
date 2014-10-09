@@ -1,0 +1,69 @@
+file wrapped_fs.c: Parsing
+Converting
+Type-checking wrapped_fs
+file wrapped_fs.c line 420 function close_file: function `c::fs_file_close' is not declared
+Generating GOTO Program
+Adding CPROVER library
+193 functions, 186 instructions.
+Removing function pointers
+Removing unused functions
+Dropping 184 of 193 functions (9 used)
+Full inlining
+file wrapped_fs.c line 205 function init_fs: no body for function `c::fs_init_root'
+file wrapped_fs.c line 387 function read_file: no body for function `c::fs_read_file'
+file wrapped_fs.c line 406 function write_file: no body for function `c::fs_write_file'
+*** Starting CEGAR Loop ***
+Calculating initial set of predicates
+*** CEGAR Loop Iteration 1
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 54
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 2
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 67
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 3
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 67
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 4
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Time: 1.13 total, 0.259 abstractor, 0.475 model checker, 0.061 simulator, 0.308 refiner
+Iterations: 4
+Predicates: 4
+Statistics of model checker:
+Broadcast assignment operations executed: 0
+Max number of slots used: 0
+Non-broadcast assignment operations executed: 34
+Time spent in broadcast assignment operations: 0
+Time spent in non-broadcast assignment operations: 0.000478
+Total slots: 0
+
+Statistics of refiner:
+Invalid states requiring more than 1 passive thread: 0
+Spurious assignment transitions requiring more than 1 passive thread: 0
+Spurious guard transitions requiring more than 1 passive thread: 0
+Total transition refinements: 19
+Transition refinement iterations: 3
+
+VERIFICATION SUCCESSFUL

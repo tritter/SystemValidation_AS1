@@ -1,0 +1,789 @@
+file wrapped_fs.c: Parsing
+Converting
+Type-checking wrapped_fs
+file wrapped_fs.c line 420 function close_file: function `c::fs_file_close' is not declared
+Generating GOTO Program
+Adding CPROVER library
+193 functions, 194 instructions.
+Removing function pointers
+Removing unused functions
+Dropping 181 of 193 functions (12 used)
+Full inlining
+file wrapped_fs.c line 205 function init_fs: no body for function `c::fs_init_root'
+file wrapped_fs.c line 317 function close_dir: no body for function `c::fs_close_dir'
+file wrapped_fs.c line 331 function open_file: no body for function `c::fs_exists_file'
+file wrapped_fs.c line 342 function open_file: no body for function `c::fs_open_file'
+file wrapped_fs.c line 367 function create_file: no body for function `c::fs_create_file'
+*** Starting CEGAR Loop ***
+Calculating initial set of predicates
+*** CEGAR Loop Iteration 1
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 46
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 2
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 47
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 3
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 47
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 4
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 47
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 5
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 49
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 6
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 49
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 7
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 49
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 8
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 49
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 9
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 49
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 10
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 53
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 11
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 56
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 12
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 56
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 13
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 56
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 14
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 56
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 15
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 60
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 16
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 17
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 18
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 19
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 20
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 21
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 22
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 23
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 68
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 24
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 25
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 26
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 27
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 28
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 29
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 30
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 31
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 32
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 33
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 72
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 34
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 35
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 36
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 37
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 38
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 39
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 40
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 41
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 42
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 43
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 44
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 45
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 46
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 47
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 48
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 49
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 50
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 51
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 52
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 53
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 54
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 55
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 56
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 57
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 58
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 59
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 60
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 61
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 62
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 63
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 64
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 76
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 65
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 79
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 66
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 82
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 67
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 68
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 69
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 70
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 71
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 72
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 73
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 74
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 75
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 76
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 113
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 77
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2

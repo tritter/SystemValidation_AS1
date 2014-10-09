@@ -1,0 +1,601 @@
+
+file wrapped_fs.c: Parsing
+Converting
+Type-checking wrapped_fs
+file wrapped_fs.c line 420 function close_file: function `c::fs_file_close' is not declared
+Generating GOTO Program
+Adding CPROVER library
+193 functions, 182 instructions.
+Removing function pointers
+Removing unused functions
+Dropping 183 of 193 functions (10 used)
+Full inlining
+file wrapped_fs.c line 205 function init_fs: no body for function `c::fs_init_root'
+file wrapped_fs.c line 243 function create_dir: no body for function `c::fs_exists_dir'
+file wrapped_fs.c line 261 function create_dir: no body for function `c::fs_create_dir'
+file wrapped_fs.c line 317 function close_dir: no body for function `c::fs_close_dir'
+*** Starting CEGAR Loop ***
+Calculating initial set of predicates
+*** CEGAR Loop Iteration 1
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 38
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 2
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 38
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 3
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 38
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 4
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 38
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 5
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 38
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 6
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 60
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 7
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 60
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 8
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 60
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 9
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 60
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 10
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 11
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 12
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 13
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 14
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 15
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 16
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 17
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 64
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 18
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 69
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 19
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 69
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 20
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 69
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 21
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 69
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 22
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 78
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 23
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 78
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 24
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 78
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 25
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 78
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 26
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 83
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 27
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 88
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 28
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 88
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 29
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 88
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Transitions are not spurious
+Refining set of predicates according to counterexample (WP)
+*** CEGAR Loop Iteration 30
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 93
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 31
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 98
+Spurious counterexample.
+Trace is spurious
+Checking transitions
+Found a spurious transition
+*** CEGAR Loop Iteration 32
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 2 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+Simulating abstract counterexample on concrete program
+Prefix of size 106
+Simulation successful
+Time: 22.623 total, 0.819 abstractor, 11.912 model checker, 0.398 simulator, 9.464 refiner
+Iterations: 32
+Predicates: 32
+Statistics of model checker:
+Broadcast assignment operations executed: 0
+Max number of slots used: 0
+Non-broadcast assignment operations executed: 1079
+Time spent in broadcast assignment operations: 0
+Time spent in non-broadcast assignment operations: 0.0413
+Total slots: 0
+
+Statistics of refiner:
+Invalid states requiring more than 1 passive thread: 0
+Spurious assignment transitions requiring more than 1 passive thread: 0
+Spurious guard transitions requiring more than 1 passive thread: 0
+Total transition refinements: 172
+Transition refinement iterations: 26
+
+Counterexample:
+
+State 2 file wrapped_fs.c line 30 thread 0
+----------------------------------------------------
+  dirs={ { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } } } ({ { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } } })
+
+State 3 file wrapped_fs.c line 31 thread 0
+----------------------------------------------------
+  dir_status={ 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 4 file wrapped_fs.c line 33 thread 0
+----------------------------------------------------
+  dir_parent={ 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 5 file wrapped_fs.c line 35 thread 0
+----------------------------------------------------
+  files={ { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, 
+    { .dummy={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } } } ({ { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } }, { { 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000, 00000000 } } })
+
+State 6 file wrapped_fs.c line 36 thread 0
+----------------------------------------------------
+  file_status={ 0, 0, 0, 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 7 file wrapped_fs.c line 37 thread 0
+----------------------------------------------------
+  file_parent={ 0, 0, 0, 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 8 file wrapped_fs.c line 49 thread 0
+----------------------------------------------------
+  init=0 (00000000000000000000000000000000)
+
+State 9 file <built-in> line 26 thread 0
+----------------------------------------------------
+  __CPROVER_deallocated=NULL (00000000000000000000000000000000)
+
+State 10 file <built-in> line 27 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_object=NULL (00000000000000000000000000000000)
+
+State 11 file <built-in> line 28 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_size=0 (00000000000000000000000000000000)
+
+State 12 file <built-in> line 29 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_is_new_array=FALSE (0)
+
+State 13 file <built-in> line 38 thread 0
+----------------------------------------------------
+  __CPROVER_rounding_mode=0 (00000000000000000000000000000000)
+
+State 17 file wrapped_fs.c line 187 function init_fs thread 0
+----------------------------------------------------
+  i=i!0#1 (?)
+
+State 18 file wrapped_fs.c line 196 function init_fs thread 0
+----------------------------------------------------
+  i=0 (00000000000000000000000000000000)
+
+State 20 file wrapped_fs.c line 197 function init_fs thread 0
+----------------------------------------------------
+  dir_status[i!0]=0 (00000000000000000000000000000000)
+
+State 21 file wrapped_fs.c line 196 function init_fs thread 0
+----------------------------------------------------
+  i=1 (00000000000000000000000000000001)
+
+State 24 file wrapped_fs.c line 197 function init_fs thread 0
+----------------------------------------------------
+  dir_status[i!0]=0 (00000000000000000000000000000000)
+
+State 25 file wrapped_fs.c line 196 function init_fs thread 0
+----------------------------------------------------
+  i=2 (00000000000000000000000000000010)
+
+State 28 file wrapped_fs.c line 197 function init_fs thread 0
+----------------------------------------------------
+  dir_status[i!0]=0 (00000000000000000000000000000000)
+
+State 29 file wrapped_fs.c line 196 function init_fs thread 0
+----------------------------------------------------
+  i=3 (00000000000000000000000000000011)
+
+State 32 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=0 (00000000000000000000000000000000)
+
+State 34 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 35 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 36 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=1 (00000000000000000000000000000001)
+
+State 39 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 40 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 41 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=2 (00000000000000000000000000000010)
+
+State 44 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 45 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 46 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=3 (00000000000000000000000000000011)
+
+State 49 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 50 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 51 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=4 (00000000000000000000000000000100)
+
+State 54 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 55 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 56 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=5 (00000000000000000000000000000101)
+
+State 59 file wrapped_fs.c line 200 function init_fs thread 0
+----------------------------------------------------
+  file_status[i!0]=0 (00000000000000000000000000000000)
+
+State 60 file wrapped_fs.c line 201 function init_fs thread 0
+----------------------------------------------------
+  file_parent[i!0]=-1 (11111111111111111111111111111111)
+
+State 61 file wrapped_fs.c line 199 function init_fs thread 0
+----------------------------------------------------
+  i=6 (00000000000000000000000000000110)
+
+State 64 file wrapped_fs.c line 204 function init_fs thread 0
+----------------------------------------------------
+  dir_status[0]=1 (00000000000000000000000000000001)
+
+State 69 file wrapped_fs.c line 165 function main thread 0
+----------------------------------------------------
+  return_value_nondet_int$1=return_value_nondet_int$1!0#1 (?)
+
+State 70 file wrapped_fs.c line 165 function main thread 0
+----------------------------------------------------
+  return_value_nondet_int$1=1 (00000000000000000000000000000001)
+
+State 71 file wrapped_fs.c line 165 function main thread 0
+----------------------------------------------------
+  dir=dir!0#1 (?)
+
+State 72 file wrapped_fs.c line 165 function main thread 0
+----------------------------------------------------
+  dir=1 (00000000000000000000000000000001)
+
+State 74 file wrapped_fs.c line 168 function main thread 0
+----------------------------------------------------
+  dir1=dir1!0#1 (?)
+
+State 75 file wrapped_fs.c line 168 function main thread 0
+----------------------------------------------------
+  dir1=-1 (11111111111111111111111111111111)
+
+State 76 file wrapped_fs.c line 169 function main thread 0
+----------------------------------------------------
+  dir2=dir2!0#1 (?)
+
+State 77 file wrapped_fs.c line 169 function main thread 0
+----------------------------------------------------
+  dir2=-1 (11111111111111111111111111111111)
+
+State 80 file wrapped_fs.c line 235 function create_dir thread 0
+----------------------------------------------------
+  parent=parent!0#1 (?)
+
+State 81 file wrapped_fs.c line 235 function create_dir thread 0
+----------------------------------------------------
+  parent=0 (00000000000000000000000000000000)
+
+State 82 file wrapped_fs.c line 235 function create_dir thread 0
+----------------------------------------------------
+  name=name!0#1 (?)
+
+State 83 file wrapped_fs.c line 235 function create_dir thread 0
+----------------------------------------------------
+  name=&"dir1"[0] (00000010000000000000000000000000)
+
+State 84 file wrapped_fs.c line 235 function create_dir thread 0
+----------------------------------------------------
+  i=i!0#1 (?)
+
+State 89 file wrapped_fs.c line 243 function create_dir thread 0
+----------------------------------------------------
+  return_value_fs_exists_dir$1=return_value_fs_exists_dir$1!0#1 (?)
+
+State 93 file wrapped_fs.c line 243 function create_dir thread 0
+----------------------------------------------------
+  return_value_fs_exists_dir$1=0 (00000000000000000000000000000000)
+
+State 95 file wrapped_fs.c line 247 function create_dir thread 0
+----------------------------------------------------
+  i=0 (00000000000000000000000000000000)
+
+State 98 file wrapped_fs.c line 247 function create_dir thread 0
+----------------------------------------------------
+  i=1 (00000000000000000000000000000001)
+
+Violated property:
+  file wrapped_fs.c line 262 function create_dir
+  assertion
+  (dir_status[i] & 1) == 1
+
+VERIFICATION FAILED

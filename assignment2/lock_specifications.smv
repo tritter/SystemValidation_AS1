@@ -1,0 +1,24 @@
+-- ================================================================================
+-- Always at least one door closed
+-- ================================================================================
+-- can be defined as at any given time (ltlspec globally) either door1 or door2 or both should be closed
+-- assuming atomic properties Door1_closed, Door2_closed
+
+LTLSPEC G ( Door1_closed || Door2_closed )
+
+-- ================================================================================
+-- The doors may only be open when the water level on both sides is equal
+-- ================================================================================
+-- can be defined as at any given time, when a door is open, the water level on that side of the door should
+-- equal the lock waterlevel
+-- assuming atomix properties Door1_open, Doo2_open, Side1_level, Side2_level, Lock_level
+
+LTLSPEC G ( Door1_open -> (Side1_level == Lock_level) )
+LTLSPEC G ( Door2_open -> (Side2_level == Lock_level) )
+
+
+
+-- It should be possible to lower and raise the water level
+-- It should only be possible to raise/lower the water level when both doors are closed
+-- The doors should not close when there is a boat passing through
+ 

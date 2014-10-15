@@ -1,0 +1,3 @@
+#!/bin/bash
+
+javac -cp /opt/sfw/generic/jmlunitng-1.4/lib/jmlunitng.jar:testbin -d testbin tests/*.java

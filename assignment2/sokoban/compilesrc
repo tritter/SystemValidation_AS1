@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p testbin
+
+java -cp /home/sv/openjml-4.2.2/plugins/org.jmlspecs.OpenJMLUI_0.5.33/bin:/home/sv/openjml-4.2.2/plugins/org.jmlspecs.Specs_0.5.33 -Dopenjml.eclipseSpecsProjectLocation=/home/sv/openjml-4.2.2/plugins/org.jmlspecs.Specs_0.5.33 org.jmlspecs.openjml.Main -rac -noPurityCheck -d testbin src/*.java

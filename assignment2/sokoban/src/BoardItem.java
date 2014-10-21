@@ -10,6 +10,12 @@ public class BoardItem {
     public boolean crate;
     
     /** @informal creates a valid board item object */
+    /*@ requires true;
+      @ ensures this != null;
+    	@ ensures ground == false;
+    	@ ensures marked == false;
+    	@ ensures crate == false;
+    @*/
     public BoardItem() {
         ground = false;
         marked = false;

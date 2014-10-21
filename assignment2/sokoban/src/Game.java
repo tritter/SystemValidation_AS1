@@ -34,6 +34,11 @@ final class Game {
   }
 
   /** @informal Check precisely for the win situation */
+  /*@ normal_behavior
+    @ requires board.xSize > 0;
+		@ ensures \result == true;
+		@ (\exists int i; 0 <= i && i < arr.length; \result == arr[i]);
+	@*/
   boolean wonGame () {
       boolean result = true;
     for (int x = 0; result && x < board.xSize; x++) {

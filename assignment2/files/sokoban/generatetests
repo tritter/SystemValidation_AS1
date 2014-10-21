@@ -1,0 +1,19 @@
+#!/bin/bash
+
+rm -rf src_temp
+mkdir src_temp
+
+FILES="BoardItem.java Board.java Game.java Player.java Position.java"
+
+for i in $FILES; do cp src/$i src_temp; done
+
+cd src_temp
+
+sed --in-place 's/^.*\/\/.*skip.*$//g' *.java
+sed --in-place 's/^.*new GameGUI.*$//g' Game.java
+
+cd ..
+
+jmlunitng --package --reflection --dest tests src_temp
+
+rm -rf src_temp

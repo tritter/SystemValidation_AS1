@@ -41,6 +41,7 @@ final class Board {
   /** @informal based on valid parameters the constructor creates an "all wall" board */
   /*@ requires sizeX > 0 && sizeY > 0;
     @ requires sizeX == sizeY;
+    @ ensures this != null;
     @ ensures 
         (\forall int x; x >= 0 && x < sizeX;
            (\forall int y; y >= 0 && y < sizeY;

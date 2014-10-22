@@ -34,8 +34,19 @@ final class Position
   }
 
   /** @informal a valid next position is away one move horizontally or vertically from the current one */
-  /*@ requires newPosition != null;
-    @ ensures \result == ((newPosition.x - x) >= -1 && (newPosition.x - x) <= 1 && (newPosition.y - y) >= -1 && (newPosition.y - y) <= 1);
+  //@ ghost int gdX;
+  //@ ghost int gdY; 
+  
+  /*
+    @ set gdX = (newPosition.x - x);
+    @ set gdY = newPosition.y - y;
+    
+    @ requires newPosition != null;
+    @ ensures \result == 
+    			((gdX == 0) && (gdY == 1)) ||
+    			((gdX == -1) && (gdY == 0))||
+    			((gdX == 1) && (gdY == 0)) ||
+    			((gdX == 0) && (gdY == -1));
   @*/
   boolean isValidNextPosition (Position newPosition) {
 	  int dX = newPosition.x - x;

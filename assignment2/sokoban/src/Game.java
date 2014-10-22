@@ -19,21 +19,40 @@
  */
 final class Game {
 
-  Board board;
-  Player player;
+	/*@ spec_public */Board board;
+	/*@ spec_public */Player player;
 
   /** @informal Some consistency properties:
        - a player has to be within the bounds of the board
        - a player can only stand o board square that is not occupied (by a wall or a crate) 
-       (hint - repeating some invariants stated in Board might speed up ESC on wonGame) */
-  
+       (hint - repeating some invariants stated in Board might speed up ESC on wonGame) 
+  //@ public invariant board.onBoard(player.position);
+	//@ public invariant board.isOpen(player.position);
+	*/
   /** @informal based on valid parameters the constructor creates a valid game object */
+	/*@ requires player != null && board != null;
+  @ ensures this != null;
+  @ ensures this.board == board;
+  @ ensures this.player == player;
+	*/
   Game ( /*@ non_null @*/ Board board, /*@ non_null @*/ Player player) {
     this.board = board;
     this.player = player;
   }
 
+  
+  /*@ model boolean wonGame;
+		@ represents wonGame <- (\forall int x; x >= 0 && x < board.xSize;
+            (\forall int y; y >= 0 && y < board.ySize;
+               (board.items[x][y].marked && board.items[x][y].crate) || !board.items[x][y].marked
+            )
+        ); 
+		@*/
   /** @informal Check precisely for the win situation */
+  /*@
+     @ requires true;
+     @ ensures \result == wonGame;
+   @*/
   boolean wonGame () {
       boolean result = true;
     for (int x = 0; result && x < board.xSize; x++) {
@@ -48,9 +67,57 @@ final class Game {
     return result;
   }
 
+  /*@ model boolean leftCrate;
+		@ represents leftCrate <- (board.items[player.position.x - 1][player.position.y].crate); 
+		@*/
+	/*@ model boolean rightCrate;
+		@ represents rightCrate <- (board.items[player.position.x + 1][player.position.y].crate); 
+		@*/
+	/*@ model boolean upCrate;
+		@ represents upCrate <- (board.items[player.position.x][player.position.y - 1].crate); 
+		@*/
+	/*@ model boolean downCrate;
+		@ represents downCrate <- (board.items[player.position.x][player.position.y + 1].crate); 
+		@*/
+  
   /** @informal The core of the game - checks the validity of the move,
     *  moves the player to new position, rearranges the board.
     */
+  /*@
+   	normal_behaviour
+   	requires board.isOpen(newPosition);
+   	ensures player.position == newPosition;
+   	ensures (board == \old(board));
+   	also
+   	normal_behaviour
+   	requires !board.isOpen(newPosition) && leftCrate && (newPosition.x - player.position.x) == -1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x - 2, player.position.y);
+   	ensures player.position == newPosition;
+   	ensures board.items[newPosition.x - 1][newPosition.y].crate;
+   	also
+   	normal_behaviour
+   	requires !board.isOpen(newPosition) && rightCrate && (newPosition.x - player.position.x) == 1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x + 2, player.position.y);
+   	ensures player.position == newPosition;
+   	ensures board.items[newPosition.x + 1][newPosition.y].crate;
+   	also
+   	normal_behaviour
+   	requires !board.isOpen(newPosition) && upCrate && (newPosition.y - player.position.y) == -1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y - 2);
+   	ensures player.position == newPosition;
+   	ensures board.items[newPosition.x][newPosition.y - 1].crate;
+   	also
+   	normal_behaviour
+   	requires !board.isOpen(newPosition) && downCrate && (newPosition.y - player.position.y) == 1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y + 2);
+   	ensures player.position == newPosition;
+   	ensures board.items[newPosition.x][newPosition.y + 1].crate;
+   	also
+   	normal_behaviour
+   	requires !(board.isOpen(newPosition));
+   	requires !(!board.isOpen(newPosition) && leftCrate && (newPosition.x - player.position.x) == -1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x - 2, player.position.y));
+   	requires !(!board.isOpen(newPosition) && rightCrate && (newPosition.x - player.position.x) == 1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x + 2, player.position.y));
+   	requires !(!board.isOpen(newPosition) && upCrate && (newPosition.y - player.position.y) == -1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y - 2));
+   	requires !(!board.isOpen(newPosition) && downCrate && (newPosition.y - player.position.y) == 1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y + 2));
+   	ensures (player.position == \old(player.position)) && (\result == false);
+   	ensures (board == \old(board));
+   @*/
   boolean movePlayer (Position newPosition) {
 
     // First a light check if the move is allowed and the position is OK
@@ -59,15 +126,18 @@ final class Game {
     }
 
     /** @informal Re-check that the new position is on the board */
-
+    //@ assert(board.onBoard(newPosition));
     // If the new position is not a crate just move
-    if (!board.items[newPosition.x][newPosition.y].crate) {
+    if (board.isOpen(newPosition)) {
       player.setPosition (newPosition);
       return true;
+    }else if(!board.items[newPosition.x][newPosition.y].crate){
+    	return false;
     }
-
+    
     /** @informal Last case, it has to be crate, check that */
-
+    //@ assert(board.items[newPosition.x][newPosition.y].crate);
+    
     // make the move together with the crate if possible */
     int xShift = newPosition.x - player.position.x;
     int yShift = newPosition.y - player.position.y;

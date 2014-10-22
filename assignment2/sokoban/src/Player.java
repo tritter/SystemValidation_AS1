@@ -8,7 +8,7 @@ final class Player
   /** @informal a player always has a position */
   //@ public invariant position != null;
 
-  public Position position;
+	public Position position;
 
   /** @informal based on valid parameters the constructor creates a valid player object */
   /*@ requires position != null;

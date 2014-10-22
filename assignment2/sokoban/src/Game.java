@@ -32,7 +32,7 @@ final class Game {
   //@ public invariant board.onBoard(player.position);
 	//@ public invariant board.isOpen(player.position);
   //@ public invariant !gameStuck || wonGame; */
-	
+		
   /** @informal based on valid parameters the constructor creates a valid game object */
 	/*@ requires player != null && board != null;
   @ ensures this != null;
@@ -65,6 +65,7 @@ final class Game {
 
   /** @informal Check precisely for the win situation */
   /*@
+    requires true;
     ensures \result == wonGame;
    @*/
   boolean wonGame () {

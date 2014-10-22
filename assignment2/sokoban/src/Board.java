@@ -6,15 +6,15 @@ final class Board {
   /** @informal The board has a positive size, is a square, and all items are defined. */
   //@ public invariant xSize > 0 && ySize > 0;
   //@ public invariant xSize == ySize;
-	//@ public invariant items.length > 0 && items.length <= xSize;
+	//@ public invariant items.length == xSize && items.length > 0;
 	/*@ public invariant
   (\forall int x; x >= 0 && x < xSize;
-             (items.length > 0 && items[x].length == ySize)
+             (items[x].length > 0 && items[x].length == ySize && items[x] != null)
   );
 @*/  	
   /*@ public invariant
-     (\forall int x; x >= 0 && x < xSize;
-         (\forall int y; y >= 0 && y < ySize;
+     (\forall int x; x >= 0 && x < items.length;
+         (\forall int y; y >= 0 && y < items.length;
                 items[x][y] != null
          )
      );

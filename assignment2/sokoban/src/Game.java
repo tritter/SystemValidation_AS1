@@ -27,11 +27,11 @@ final class Game {
        - a player has to be within the bounds of the board
        - a player can only stand o board square that is not occupied (by a wall or a crate) 
        (hint - repeating some invariants stated in Board might speed up ESC on wonGame) 
-	*/
+	
 	
   //@ public invariant board.onBoard(player.position);
 	//@ public invariant board.isOpen(player.position);
-  //@ public invariant !gameStuck || wonGame; 
+  //@ public invariant !gameStuck || wonGame; */
 	
   /** @informal based on valid parameters the constructor creates a valid game object */
 	/*@ requires player != null && board != null;
@@ -101,7 +101,6 @@ final class Game {
    	normal_behaviour
    	requires board.isOpen(newPosition);
    	ensures player.position == newPosition;
-   	ensures (board == \old(board));
    	also
    	normal_behaviour
    	requires !board.isOpen(newPosition) && leftCrate && (newPosition.x - player.position.x) == -1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x - 2, player.position.y);
@@ -124,13 +123,8 @@ final class Game {
    	ensures board.items[newPosition.x][newPosition.y + 1].crate;
    	also
    	normal_behaviour
-   	requires !(board.isOpen(newPosition));
-   	requires !(!board.isOpen(newPosition) && leftCrate && (newPosition.x - player.position.x) == -1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x - 2, player.position.y));
-   	requires !(!board.isOpen(newPosition) && rightCrate && (newPosition.x - player.position.x) == 1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x + 2, player.position.y));
-   	requires !(!board.isOpen(newPosition) && upCrate && (newPosition.y - player.position.y) == -1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y - 2));
-   	requires !(!board.isOpen(newPosition) && downCrate && (newPosition.y - player.position.y) == 1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y + 2));
-   	ensures (player.position == \old(player.position)) && (\result == false);
-   	ensures (board == \old(board));
+   	requires true;
+   	ensures (\result == (player.position == \old(player.position)));
    @*/
   //@ skipesc
   boolean movePlayer (Position newPosition) {

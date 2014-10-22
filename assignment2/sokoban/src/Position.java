@@ -15,6 +15,7 @@ final class Position
     @ ensures this.x == x;
     @ ensures this.y == y;
   @*/
+//@ skipesc
   Position (int x, int y) {
     this.x = x;
     this.y = y;
@@ -24,6 +25,7 @@ final class Position
   /*@ requires true;
     @ ensures \result ==  ( o != null && (o instanceof Position) && x == ((Position)o).x && y == ((Position)o).y );
   @*/
+//@ skipesc
   public boolean equals (Object o) {
     if (o instanceof Position) {
       Position q = (Position) o;
@@ -48,6 +50,7 @@ final class Position
     			((gdX == 1) && (gdY == 0)) ||
     			((gdX == 0) && (gdY == -1));
   @*/
+//@ skipesc
   boolean isValidNextPosition (Position newPosition) {
 	  int dX = newPosition.x - x;
 	  int dY = newPosition.y - y;

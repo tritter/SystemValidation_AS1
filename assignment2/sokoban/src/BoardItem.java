@@ -16,6 +16,7 @@ public class BoardItem {
     	@ ensures marked == false;
     	@ ensures crate == false;
     @*/
+  //@ skipesc
     public BoardItem() {
         ground = false;
         marked = false;

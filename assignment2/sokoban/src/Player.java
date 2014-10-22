@@ -15,6 +15,7 @@ final class Player
     @ ensures this != null;
   	@ ensures this.position == position;
   @*/
+//@ skipesc
   Player (Position position) {
     this.position = position;
   }
@@ -24,6 +25,7 @@ final class Player
   /*@ requires position != null;
     @ ensures this.position == newPosition;
   @*/
+//@ skipesc
   public void setPosition (Position newPosition) {
 	    this.position = newPosition;
   }

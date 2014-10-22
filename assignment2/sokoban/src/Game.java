@@ -17,6 +17,7 @@
  * The game is won when the player rearranges the board such that all marked ground
  * squares are covered by crates.
  */
+
 final class Game {
 
 	/*@ spec_public */Board board;
@@ -26,32 +27,45 @@ final class Game {
        - a player has to be within the bounds of the board
        - a player can only stand o board square that is not occupied (by a wall or a crate) 
        (hint - repeating some invariants stated in Board might speed up ESC on wonGame) 
+	*/
+	
   //@ public invariant board.onBoard(player.position);
 	//@ public invariant board.isOpen(player.position);
-	*/
+  //@ public invariant !gameStuck || wonGame; 
+	
   /** @informal based on valid parameters the constructor creates a valid game object */
 	/*@ requires player != null && board != null;
   @ ensures this != null;
   @ ensures this.board == board;
   @ ensures this.player == player;
 	*/
+//@ skipesc
   Game ( /*@ non_null @*/ Board board, /*@ non_null @*/ Player player) {
     this.board = board;
     this.player = player;
   }
 
+  /*@ public model boolean gameStuck;
+	@ represents gameStuck <- !(\exists int x; x >= 1 && x < board.xSize - 1;
+          (\exists int y; y >= 1 && y < board.ySize - 1;
+            	(board.items[x][y].crate && (
+            	(board.items[x - 1][y].ground && !board.items[x - 1][y].crate && board.items[x + 1][y].ground && !board.items[x + 1][y].crate) || 
+            	(board.items[x][y - 1].ground && !board.items[x][y - 1].crate && board.items[x][y + 1].ground && !board.items[x][y + 1].crate) )) 
+          )
+      ); 
+	@*/
   
-  /*@ model boolean wonGame;
+  /*@ public model boolean wonGame;
 		@ represents wonGame <- (\forall int x; x >= 0 && x < board.xSize;
             (\forall int y; y >= 0 && y < board.ySize;
                (board.items[x][y].marked && board.items[x][y].crate) || !board.items[x][y].marked
             )
         ); 
 		@*/
+
   /** @informal Check precisely for the win situation */
   /*@
-     @ requires true;
-     @ ensures \result == wonGame;
+    ensures \result == wonGame;
    @*/
   boolean wonGame () {
       boolean result = true;
@@ -118,6 +132,7 @@ final class Game {
    	ensures (player.position == \old(player.position)) && (\result == false);
    	ensures (board == \old(board));
    @*/
+  //@ skipesc
   boolean movePlayer (Position newPosition) {
 
     // First a light check if the move is allowed and the position is OK

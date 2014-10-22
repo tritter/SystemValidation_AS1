@@ -5,8 +5,13 @@ final class Board {
 
   /** @informal The board has a positive size, is a square, and all items are defined. */
   //@ public invariant xSize > 0 && ySize > 0;
-  //@ public invariant xSize < Integer.MAX_VALUE && ySize < Integer.MAX_VALUE;
   //@ public invariant xSize == ySize;
+	//@ public invariant items.length > 0 && items.length < xSize;
+	/*@ public invariant
+  (\forall int x; x >= 0 && x < xSize;
+             (items.length > 0 && items[x].length < ySize)
+  );
+@*/  	
   /*@ public invariant
      (\forall int x; x >= 0 && x < xSize;
          (\forall int y; y >= 0 && y < ySize;
@@ -49,6 +54,7 @@ final class Board {
            )
         );
   @*/
+//@ skipesc
   Board (int sizeX, int sizeY) {
     this.xSize = sizeX;
     this.ySize = sizeY;
@@ -64,6 +70,7 @@ final class Board {
   /*@ requires p != null;
     @ ensures \result == (0 <= p.x && p.x < this.xSize && 0 <= p.y && p.y < this.ySize);
     @*/
+//@ skipesc
   public boolean onBoard(Position p) {
       return 0 <= p.x && p.x < xSize && 0 <= p.y && p.y < ySize;
   }
@@ -72,6 +79,7 @@ final class Board {
   /*@ requires true;
     @ ensures \result == (0 <= x && x < this.xSize && 0 <= y && y < this.ySize);
     @*/
+//@ skipesc
   public boolean onBoard(int x, int y) {
       return 0 <= x && x < xSize && 0 <= y && y < ySize;
   }
@@ -80,6 +88,7 @@ final class Board {
   /*@ requires p!=null;
     @ ensures \result == ( onBoard(p) && items[p.x][p.y].ground && !items[p.x][p.y].crate );   
   @*/
+//@ skipesc
   public boolean isOpen(/*@ non_null @*/ Position p) {
 	  if(!onBoard(p)) return false;
 	  return items[p.x][p.y].ground && !items[p.x][p.y].crate; 
@@ -89,6 +98,7 @@ final class Board {
   /*@ requires true;
     @ ensures \result == ( onBoard(x,y) && items[x][y].ground && !items[x][y].crate );   
   @*/
+//@ skipesc
   public boolean isOpen(int x, int y) {
 	  if(!onBoard(x, y)) return false;
 	  return items[x][y].ground && !items[x][y].crate; 

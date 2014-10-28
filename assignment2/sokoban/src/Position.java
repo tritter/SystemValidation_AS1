@@ -39,11 +39,7 @@ final class Position
   //@ ghost int gdX;
   //@ ghost int gdY; 
   
-  /*
-    @ set gdX = (newPosition.x - x);
-    @ set gdY = newPosition.y - y;
-    
-    @ requires newPosition != null;
+  /*@ requires newPosition != null;
     @ ensures \result == 
     			((gdX == 0) && (gdY == 1)) ||
     			((gdX == -1) && (gdY == 0))||
@@ -52,12 +48,16 @@ final class Position
   @*/
 //@ skipesc
   boolean isValidNextPosition (Position newPosition) {
+  	//@ set gdX = (newPosition.x - x);
+    //@ set gdY = newPosition.y - y;
 	  int dX = newPosition.x - x;
 	  int dY = newPosition.y - y;
 	  //@ assert(dX == (newPosition.x - x));
 	  //@ assert(dY == (newPosition.y - y));
-	  if( dX >= -1 && dX <= 1 && dY >= -1 && dY <= 1) return true;
-	  return false;
+	  return ((dX == 0) && (dY == 1)) ||
+  			((dX == -1) && (dY == 0))||
+  			((dX == 1) && (dY == 0)) ||
+  			((dX == 0) && (dY == -1));
 	  }
 
   //@ skipesc

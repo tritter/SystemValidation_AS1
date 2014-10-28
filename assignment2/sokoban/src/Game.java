@@ -101,24 +101,29 @@ final class Game {
   /*@
    	normal_behaviour
    	requires board.isOpen(newPosition);
+    requires player.position.isValidNextPosition(newPosition);
    	ensures player.position == newPosition;
    	also
    	normal_behaviour
+    requires player.position.isValidNextPosition(newPosition);
    	requires !board.isOpen(newPosition) && leftCrate && (newPosition.x - player.position.x) == -1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x - 2, player.position.y);
    	ensures player.position == newPosition;
    	ensures board.items[newPosition.x - 1][newPosition.y].crate;
    	also
    	normal_behaviour
+    requires player.position.isValidNextPosition(newPosition);
    	requires !board.isOpen(newPosition) && rightCrate && (newPosition.x - player.position.x) == 1 && (newPosition.y - player.position.y) == 0 && board.isOpen(player.position.x + 2, player.position.y);
    	ensures player.position == newPosition;
    	ensures board.items[newPosition.x + 1][newPosition.y].crate;
    	also
    	normal_behaviour
+    requires player.position.isValidNextPosition(newPosition); 
    	requires !board.isOpen(newPosition) && upCrate && (newPosition.y - player.position.y) == -1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y - 2);
    	ensures player.position == newPosition;
    	ensures board.items[newPosition.x][newPosition.y - 1].crate;
    	also
    	normal_behaviour
+    requires player.position.isValidNextPosition(newPosition);
    	requires !board.isOpen(newPosition) && downCrate && (newPosition.y - player.position.y) == 1 && (newPosition.x - player.position.x) == 0 && board.isOpen(player.position.x, player.position.y + 2);
    	ensures player.position == newPosition;
    	ensures board.items[newPosition.x][newPosition.y + 1].crate;

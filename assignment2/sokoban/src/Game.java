@@ -138,7 +138,7 @@ final class Game {
    	ensures (board == \old(board));
    @*/
   //@ skipesc
-  boolean movePlayer (Position newPosition) {
+  boolean movePlayer ( /*@ non_null @*/ Position newPosition) {
 
     // First a light check if the move is allowed and the position is OK
     if (!player.position.isValidNextPosition (newPosition) || !board.onBoard(newPosition)) {

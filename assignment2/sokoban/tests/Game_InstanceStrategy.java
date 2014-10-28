@@ -111,6 +111,7 @@ public void setEdgeCrate (Board b, boolean state)  {
 // case 2 : player in middle on open ground, surrounded open crates
 // case 3 : player in middle on open ground, surrounded by crates surrounded by walls
 // case 4 : player in middle on open ground, surrounded by crates surrounded by crates
+// case 5 : player in middle on open ground, surrounded by ground surrounded by crates
 
 public Game genGame ( int genCase ) {
     
@@ -168,6 +169,13 @@ public Game genGame ( int genCase ) {
           setEdgeCrate (b,true);
         break;    
         
+      case 5 :
+          setSurroundCrate (b,false);
+          setSurroundGround (b,true);
+          setEdgeGround (b,true);
+          setEdgeCrate (b,false);
+        break; 
+                
       default:
         break;
 
@@ -185,7 +193,7 @@ public Game genGame ( int genCase ) {
   public RepeatedAccessIterator<?> localValues() {
     return new ObjectArrayIterator<Object>
     (new Object[]
-     { genGame(1), genGame(2), genGame(3), genGame(4) });
+     { genGame (0), genGame(1), genGame(2), genGame(3), genGame(4) , genGame(5)});
   }
 
 

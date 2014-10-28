@@ -33,7 +33,7 @@ public /*@ nullable_by_default */ class Game_movePlayer__Position_newPosition__0
   public RepeatedAccessIterator<?> localValues() {
     return new ObjectArrayIterator<Object>
     (new Object[]
-     { genPos(3,3), genPos(3,4), genPos(3,5), genPos(4,3), genPos(4,5), genPos(5,3), genPos(5,4), genPos(5,5), genPos(6,6), genPos(2,2) });
+     { genPos(3,3), genPos(3,4), genPos(3,5), genPos(4,3), genPos(4,5), genPos(5,3), genPos(5,4), genPos(5,5), genPos(6,6), genPos(4,4) });
   }   
    
 
